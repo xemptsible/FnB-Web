@@ -134,6 +134,12 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\alex-lvrs-cocktail.jpg" />
+    <Content Include="Images\cody-chan-cocktail.jpg" />
+    <Content Include="Images\olena-bohovyk-drinks.jpg" />
+    <Content Include="Images\shania-pinnata-cake.jpg" />
+    <Content Include="Images\shopping-cart.png" />
+    <Content Include="Images\vishwanth-pindiboyina-cake.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
