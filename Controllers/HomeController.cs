@@ -15,14 +15,14 @@ namespace WebFnB.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Ăn cho tròn! Uống cho đã!";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Cần liên lạc với chúng tôi?";
 
             return View();
         }
