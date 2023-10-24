@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Food & Beverage</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/MainLayout.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -34,16 +35,33 @@
             </div>
         </div>
     </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Food and Beverage</p>
-        </footer>
-    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="category-title font-weight-bold mt-3 mb-3">ĐỒ ĂN</div>
+                <ul class="list-group">
+                    <li class="list-group-item">First category</li>
+                    <li class="list-group-item">Second category</li>
+                    <li class="list-group-item">Third category</li>
+                </ul>
+                <div class="category-title font-weight-bold mt-3 mb-3">NƯỚC UỐNG</div>
+                <ul class="list-group">
+                    <li class="list-group-item">First category</li>
+                    <li class="list-group-item">Second category</li>
+                    <li class="list-group-item">Third category</li>
+                </ul>
+            </div>
+            <div class="container body-content col-md-9">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - Food and Beverage</p>
+                </footer>
+            </div>
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>

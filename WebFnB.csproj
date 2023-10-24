@@ -131,10 +131,12 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\MainLayout.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\alex-lvrs-cocktail.jpg" />
+    <Content Include="Images\amirali-mirhashemian-redvelvet.jpg" />
     <Content Include="Images\cody-chan-cocktail.jpg" />
     <Content Include="Images\olena-bohovyk-drinks.jpg" />
     <Content Include="Images\shania-pinnata-cake.jpg" />
