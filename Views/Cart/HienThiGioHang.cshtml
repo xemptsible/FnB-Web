@@ -18,16 +18,16 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var sach in Model)
+        @foreach (var sp in Model)
         {
             <tr>
-                <td>@sach.MaSP</td>
-                <td>@sach.TenSP</td>
+                <td>@sp.MaSP</td>
+                <td>@sp.TenSP</td>
 
-                <td><img src="~/Images/@sach.Anh" /></td>
-                <td>@sach.SoLuong</td>
-                <td>@sach.GiaBan</td>
-                <td>@sach.ThanhTien()</td>
+                <td><img src="~/Images/@sp.Anh" /></td>
+                <td>@sp.SoLuong</td>
+                <td>@sp.GiaBan</td>
+                <td>@sp.ThanhTien()</td>
             </tr>
         }
         <tr style="font-weight:bold; text-align:right; color:red;">
