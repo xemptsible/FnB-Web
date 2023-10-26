@@ -10,10 +10,15 @@ namespace WebFnB.Controllers
     public class ProductController : Controller
     {
         QLBANHANGEntities db = new QLBANHANGEntities();
+        private List<SP> LaySP(int soluong)
+        {
+            return db.SPs.OrderByDescending(sp => sp.TenSP).Take(soluong).ToList();
+        }
         // GET: Product
         public ActionResult Index()
         {
-            return View();
+            var dsSP = LaySP(10);
+            return View(dsSP);
         }
 
         public ActionResult SPTheoNhaCungCap(int id)

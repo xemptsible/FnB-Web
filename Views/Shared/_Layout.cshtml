@@ -21,6 +21,7 @@
                     <li>@Html.ActionLink("Trang chủ", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Giới thiệu", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Liên lạc", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Testing", "Index", "Product", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
             </div>
             <form class="d-flex">
@@ -28,10 +29,7 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
             <div class="navbar-nav border rounded p-1">
-                <a href="#" class="text-decoration-none text-white">
-                    <img src="~/Images/shopping-cart.png" style="height:24px;width:24px" />
-                    Giỏ hàng
-                </a>
+                 @Html.Action("GioHangPartial", "Cart")
             </div>
         </div>
     </nav>
