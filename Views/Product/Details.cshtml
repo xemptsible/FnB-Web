@@ -1,0 +1,27 @@
+﻿@using WebFnB.Models
+@model SP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
+<br />
+<div class="row">
+    <div class="offset-md-1 col-md-4">
+        <img style="width: 100%;" src="~/images/@Model.Anh" alt="" />
+    </div>
+    <div class="col-md-6 details">
+        <h3>Tên sách: @Model.TenSP</h3>
+        <p style="text-align: justify">
+            <span style="font-weight: bold">Mô tả:</span> @Model.MoTa
+        </p>
+        <p class="price">
+            Giá bán: <span style="color:red; font-size:32px;">@Model.GiaBan VNĐ</span>
+        </p>
+        <a class="btn btn-primary" href="@Url.Action("ThemSanPhamVaoGio", "Cart", new{ MaSP = Model.MaSP })">
+            Đặt mua
+        </a>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@using WebFnB.Models
+@model IEnumerable<SP>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>ĐÂY LÀ TRANG CHỦ</h2>
+<div class="row">
+    @foreach (var sp in Model)
+    {
+
+        <div class="card col-sm-4 col-md-4 col-lg-4 d-flex align-items-stretch book-
+section">
+
+            <a href="@Url.Action("Details", "Product", new { id = sp.MaSP })">
+                <img class="card-img-top book-picture"
+                     src="~/Images/@sp.Anh" alt="Card image">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">@sp.Anh</h4>
+                <p class="card-text">@sp.Anh</p>
+            </div>
+        </div>
+    }
+</div>
