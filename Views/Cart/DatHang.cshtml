@@ -1,0 +1,61 @@
+﻿@using WebFnB.Models
+@model List<MatHangMua>
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">THÔNG TIN GIỎ HÀNG</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Ảnh minh họa</th>
+            <th>Số lượng</th>
+            <th>Đơn giá</th>
+            <th>Thành tiền</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sp in Model)
+        {
+            <tr>
+                <td>@sp.MaSP</td>
+                <td>@sp.TenSP</td>
+                <td><img src="~/Images/@sp.Anh" style="width:100%" /></td>
+                <td>@sp.SoLuong</td>
+                <td>@String.Format("{0:0,0}", sp.GiaBan)</td>
+                <td>@String.Format("{0:0,0}", sp.ThanhTien())</td>
+            </tr>
+        }
+        <tr style="font-weight:bold; text-align:right; color:red;">
+            <td colspan="4">Tổng số lượng: @ViewBag.TongSL</td>
+            <td colspan="5">Tổng tiền: @ViewBag.TongTien</td>
+        </tr>
+    </tbody>
+</table>
+@*<h2 style="text-align:center">THÔNG TIN KHÁCH HÀNG</h2>
+<table class="table table-bordered">
+    <tr>
+        <td>Họ tên: </td>
+        <td>@khach.HoTenKH</td>
+    </tr>
+    <tr>
+        <td>Địa chỉ: </td>
+        <td>@khach.DiachiKH</td>
+    </tr>
+    <tr>
+        <td>Điện thoại: </td>
+        <td>@khach.DienthoaiKH</td>
+    </tr>
+    <tr>
+        <td>Ngày đặt: </td>
+        <td>@DateTime.Now.ToShortDateString()</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center;">
+            @Html.ActionLink("ĐỒNG Ý ĐẶT HÀNG", "DongYDatHang", null, new { @class = "btn btn-primary" })
+        </td>
+    </tr>
+</table>*@

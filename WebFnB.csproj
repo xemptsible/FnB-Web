@@ -23,6 +23,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -126,52 +127,55 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AdUser.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BanHang.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BanHang.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BanHang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BanHang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BanHang.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\CTHD.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DanhGia.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HD.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KH.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiSP.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\MatHangMua.cs" />
     <Compile Include="Models\NCungCap.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SP.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ThanhToan.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -188,20 +192,51 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\alex-lvrs-cocktail.jpg" />
     <Content Include="Images\amirali-mirhashemian-redvelvet.jpg" />
+    <Content Include="Images\banhdonut.jpg" />
+    <Content Include="Images\banhtao.jpg" />
+    <Content Include="Images\Banh_chuoi_hap_nuoc_cot_dua.jpg" />
+    <Content Include="Images\Banh_chuoi_nuong.jpg" />
+    <Content Include="Images\Banh_da_lon.jpg" />
+    <Content Include="Images\blackforest.jpg" />
+    <Content Include="Images\cafeden.jpg" />
+    <Content Include="Images\cafesua.jpg" />
+    <Content Include="Images\cheesecake.jpg" />
+    <Content Include="Images\Che_3_mau.jpg" />
+    <Content Include="Images\Che_dau_do.jpg" />
+    <Content Include="Images\Che_khuc_bach.jpg" />
+    <Content Include="Images\Che_nhan_nhuc.jpg" />
+    <Content Include="Images\Che_trai_cay.jpg" />
+    <Content Include="Images\coca.jpg" />
     <Content Include="Images\cody-chan-cocktail.jpg" />
+    <Content Include="Images\gateau.jpg" />
+    <Content Include="Images\Kem_chuoi.jpg" />
+    <Content Include="Images\limburg.jpg" />
+    <Content Include="Images\macaron.jpg" />
+    <Content Include="Images\mochi.jpg" />
+    <Content Include="Images\nuocepcam.jpg" />
+    <Content Include="Images\nuoceptao.jpg" />
     <Content Include="Images\olena-bohovyk-drinks.jpg" />
+    <Content Include="Images\pavlova.jpg" />
+    <Content Include="Images\pepsi.jpg" />
+    <Content Include="Images\Rau_cau_dua.jpg" />
     <Content Include="Images\shania-pinnata-cake.jpg" />
     <Content Include="Images\shopping-cart.png" />
+    <Content Include="Images\sodachanh.jpg" />
+    <Content Include="Images\suatuoi.jpg" />
+    <Content Include="Images\Suong_sao_nuoc_cot_dua.jpg" />
+    <Content Include="Images\tiramisu.jpg" />
+    <Content Include="Images\tradao.jpg" />
+    <Content Include="Images\traxanh.jpg" />
     <Content Include="Images\vishwanth-pindiboyina-cake.jpg" />
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\BanHang.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>BanHang.Context.cs</LastGenOutput>
+      <DependentUpon>BanHang.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\BanHang.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>BanHang.edmx</DependentUpon>
+      <LastGenOutput>BanHang.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -226,12 +261,12 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <EntityDeploy Include="Models\Model1.edmx">
+    <EntityDeploy Include="Models\BanHang.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>BanHang.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <Content Include="Models\BanHang.edmx.diagram">
+      <DependentUpon>BanHang.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
@@ -341,6 +376,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Cart\HienThiGioHang.cshtml" />
+    <Content Include="Views\Cart\DatHang.cshtml" />
+    <Content Include="Views\Cart\GioHangPartial.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
