@@ -405,6 +405,8 @@
     <Content Include="Views\Cart\DatHang.cshtml" />
     <Content Include="Views\Cart\GioHangPartial.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\NguoiDung\DangKy.cshtml" />
+    <Content Include="Views\NguoiDung\DangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
