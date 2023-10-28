@@ -56,7 +56,7 @@ namespace WebFnB.Controllers
             List<MatHangMua> gioHang = LayGioHang();
             if (gioHang == null || gioHang.Count == 0)
             {
-                return RedirectToAction("Index", "BookStore");
+                return RedirectToAction("Index", "Product");
             }
             ViewBag.TongSL = TinhTongSL();
             ViewBag.TongTien = TinhTongTien();
@@ -74,7 +74,7 @@ namespace WebFnB.Controllers
                 return RedirectToAction("DangNhap", "NguoiDung");
             List<MatHangMua> gioHang = LayGioHang();
             if (gioHang == null || gioHang.Count == 0)
-                return RedirectToAction("Index", "BookStore");
+                return RedirectToAction("Index", "Product");
 
             ViewBag.TongSL = TinhTongSL();
             ViewBag.TongTien = TinhTongTien();

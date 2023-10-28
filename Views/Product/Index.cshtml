@@ -4,20 +4,20 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>Món ăn</h2>
+<h1>Món ăn</h1>
 <div class="row">
     @foreach (var sp in Model)
     {
 
-        <div class="card col-sm-4 col-md-4 col-lg-4 d-flex align-items-stretch book-
-section">
-
-            <a href="@Url.Action("Details", "Product", new { id = sp.MaSP })">
-                <img class="card-img-top book-picture"
-                     src="~/Images/@sp.Anh" alt="Card image">
-            </a>
+        <div class="card col-sm-3 col-md-3 col-lg-4 d-flex align-items-stretch">
+            <div class="img-container">
+                <a href="@Url.Action("Details", "Product", new { id = sp.MaSP })">
+                    <img class="card-img-top display-picture mt-2"
+                         src="~/Images/@sp.Anh" alt="Card image">
+                </a>
+            </div>
             <div class="card-body">
-                <h4 class="card-title">@sp.TenSP</h4>
+                <strong class="card-title">@sp.TenSP</strong>
                 <p class="card-text">@sp.GiaBan</p>
             </div>
         </div>
