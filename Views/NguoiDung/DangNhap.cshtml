@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align: center">ĐĂNG NHẬP</h2>
+<br />
+<div class="row">
+
+    <div class="offset-md-1 col-md-10">
+        <h2 style="color: red;">@ViewBag.ThongBao</h2>
+        @using (Html.BeginForm("DangNhap", "NguoiDung"))
+        {
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                <label for="dangnhap">Tên đăng nhập:</label>
+                @Html.TextBox("TaiKhoan", null, new
+                {
+                    @class = "form-control",
+                    @id =
+                "dangnhap",
+                    required = "required"
+                })
+            </div>
+            <div class="form-group">
+                <label for="matkhau">Mật khẩu:</label>
+                @Html.Password("MatKhau", null, new
+                {
+                    @class = "form-control",
+                    @id =
+                "matkhau",
+                    required = "required"
+                })
+            </div>
+            <button type="submit" class="btn btn-primary">ĐĂNG NHẬP</button>
+        }
+    </div>
+</div>
+
