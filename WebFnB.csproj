@@ -134,7 +134,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AdUser.cs">
+    <Compile Include="Models\Admin.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BanHang.Context.cs">
@@ -152,16 +152,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BanHang.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\CTHD.cs">
+    <Compile Include="Models\ChiTietHoaDon.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DanhGia.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\HD.cs">
+    <Compile Include="Models\HoaDon.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\KH.cs">
+    <Compile Include="Models\KhachHang.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiSP.cs">
@@ -171,7 +171,7 @@
     <Compile Include="Models\NCungCap.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SP.cs">
+    <Compile Include="Models\SanPham.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ThanhToan.cs">

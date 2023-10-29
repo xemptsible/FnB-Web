@@ -22,7 +22,7 @@ namespace WebFnB.Models
         public MatHangMua(int MaSP)
         {
             this.MaSP = MaSP;
-            var sp = db.SPs.Single(s => s.MaSP == this.MaSP);
+            var sp = db.SanPhams.Single(s => s.MaSP == this.MaSP);
             this.TenSP = sp.TenSP;
             this.Anh = sp.Anh;
             this.GiaBan = decimal.Parse(sp.GiaBan.ToString());

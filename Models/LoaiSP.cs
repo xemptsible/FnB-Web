@@ -17,13 +17,13 @@ namespace WebFnB.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiSP()
         {
-            this.SPs = new HashSet<SP>();
+            this.SanPhams = new HashSet<SanPham>();
         }
     
         public int MaLoaiSP { get; set; }
         public string TenLoaiSP { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SP> SPs { get; set; }
+        public virtual ICollection<SanPham> SanPhams { get; set; }
     }
 }

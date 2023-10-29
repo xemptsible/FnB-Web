@@ -29,15 +29,6 @@
                 })
             </div>
             <div class="form-group">
-                <label for="matkhau">Mật khẩu:</label>
-                @Html.Password("MatKhau", null, new
-                {
-                    @class = "form-control",
-                    @id =
-                "matkhau",
-                    required = "required"
-                })
-            </div><div class="form-group">
                 <label for="email">Email:</label>
                 @Html.TextBox("Email", null, new
                 {
@@ -45,6 +36,16 @@
                     @id =
                 "email",
                     type = "email",
+                    required = "required"
+                })
+            </div>
+            <div class="form-group">
+                <label for="matkhau">Mật khẩu:</label>
+                @Html.Password("MatKhau", null, new
+                {
+                    @class = "form-control",
+                    @id =
+                "matkhau",
                     required = "required"
                 })
             </div>
@@ -65,17 +66,6 @@
                     @id =
                 "dienthoai",
                     required = "required"
-                })
-            </div>
-            <div class="form-group">
-                <label for="ngaysinh">Ngày sinh:</label>
-                @Html.TextBox("NgaySinh", null, new
-                {
-                    @class = "form-control",
-                    @id =
-                "ngaysinh",
-                    type = "date",
-                    placeholder = "mm/dd/yyyy"
                 })
             </div>
             <button type="submit" class="btn btn-primary">ĐĂNG KÝ</button>

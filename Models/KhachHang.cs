@@ -12,20 +12,28 @@ namespace WebFnB.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class NCungCap
+    public partial class KhachHang
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NCungCap()
+        public KhachHang()
         {
-            this.SanPhams = new HashSet<SanPham>();
+            this.DanhGias = new HashSet<DanhGia>();
+            this.HoaDons = new HashSet<HoaDon>();
         }
     
-        public int MaNCC { get; set; }
-        public string TenNCC { get; set; }
+        public int MaKH { get; set; }
+        public string TenKH { get; set; }
+        public Nullable<System.DateTime> NgaySinh { get; set; }
+        public string GioiTinh { get; set; }
+        public string TaiKhoan { get; set; }
+        public string MatKhau { get; set; }
         public string DiaChi { get; set; }
+        public string Email { get; set; }
         public string SDT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SanPham> SanPhams { get; set; }
+        public virtual ICollection<DanhGia> DanhGias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }

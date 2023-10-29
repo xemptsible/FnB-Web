@@ -25,14 +25,14 @@ namespace WebFnB.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AdUser> AdUsers { get; set; }
-        public virtual DbSet<CTHD> CTHDs { get; set; }
+        public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         public virtual DbSet<DanhGia> DanhGias { get; set; }
-        public virtual DbSet<HD> HDs { get; set; }
-        public virtual DbSet<KH> KHs { get; set; }
+        public virtual DbSet<HoaDon> HoaDons { get; set; }
+        public virtual DbSet<KhachHang> KhachHangs { get; set; }
         public virtual DbSet<LoaiSP> LoaiSPs { get; set; }
         public virtual DbSet<NCungCap> NCungCaps { get; set; }
-        public virtual DbSet<SP> SPs { get; set; }
+        public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<ThanhToan> ThanhToans { get; set; }
     }
 }

@@ -12,12 +12,12 @@ namespace WebFnB.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class SP
+    public partial class SanPham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SP()
+        public SanPham()
         {
-            this.CTHDs = new HashSet<CTHD>();
+            this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
             this.DanhGias = new HashSet<DanhGia>();
         }
     
@@ -32,7 +32,7 @@ namespace WebFnB.Models
         public Nullable<int> SoLuongTon { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTHD> CTHDs { get; set; }
+        public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DanhGia> DanhGias { get; set; }
         public virtual LoaiSP LoaiSP { get; set; }

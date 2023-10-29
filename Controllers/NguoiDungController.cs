@@ -17,7 +17,7 @@ namespace WebFnB.Controllers
         }
         // GET: NguoiDung
         [HttpPost]
-        public ActionResult DangKy(KH kh)
+        public ActionResult DangKy(KhachHang kh)
         {
             if (ModelState.IsValid)
             {
@@ -32,13 +32,13 @@ namespace WebFnB.Controllers
                 if (string.IsNullOrEmpty(kh.SDT))
                     ModelState.AddModelError(string.Empty, "Điện thoại không được để trống");
                 //Kiểm tra xem có người nào đã đăng kí với tên đăng nhập này hay chưa
-                var khachhang = database.KHs.FirstOrDefault(k => k.TaiKhoan ==
+                var khachhang = database.KhachHangs.FirstOrDefault(k => k.TaiKhoan ==
                 kh.TaiKhoan);
                 if (khachhang != null)
                     ModelState.AddModelError(string.Empty, "Đã có người đăng kí tên này");
                 if (ModelState.IsValid)
                 {
-                    database.KHs.Add(kh);
+                    database.KhachHangs.Add(kh);
                     database.SaveChanges();
                 }
                 else
@@ -56,7 +56,7 @@ namespace WebFnB.Controllers
         }
         //Phần đăng nhập//
         [HttpPost]
-        public ActionResult DangNhap(KH kh)
+        public ActionResult DangNhap(KhachHang kh)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace WebFnB.Controllers
                 if (ModelState.IsValid)
                 {
                     //Tìm khách hàng có tên đăng nhập và password hợp lệ trong CSDL
-                    var khach = database.KHs.FirstOrDefault(k => k.TaiKhoan ==
+                    var khach = database.KhachHangs.FirstOrDefault(k => k.TaiKhoan ==
                     kh.TaiKhoan && k.MatKhau == kh.MatKhau);
                     if (khach != null)
                     {

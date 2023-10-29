@@ -12,11 +12,14 @@ namespace WebFnB.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AdUser
+    public partial class ChiTietHoaDon
     {
-        public string UserAdmin { get; set; }
-        public string PassAdmin { get; set; }
-        public string HoTen { get; set; }
-        public string VaiTro { get; set; }
+        public int MaHD { get; set; }
+        public int MaSP { get; set; }
+        public Nullable<int> SoLuong { get; set; }
+        public Nullable<decimal> DonGia { get; set; }
+    
+        public virtual HoaDon HoaDon { get; set; }
+        public virtual SanPham SanPham { get; set; }
     }
 }

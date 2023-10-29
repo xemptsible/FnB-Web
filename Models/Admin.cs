@@ -12,14 +12,13 @@ namespace WebFnB.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CTHD
+    public partial class Admin
     {
-        public int MaHD { get; set; }
-        public int MaSP { get; set; }
-        public Nullable<int> SoLuong { get; set; }
-        public Nullable<decimal> DonGia { get; set; }
-    
-        public virtual HD HD { get; set; }
-        public virtual SP SP { get; set; }
+        public int MaUser { get; set; }
+        public string TenDN { get; set; }
+        public string MatKhau { get; set; }
+        public string HoTen { get; set; }
+        public string Email { get; set; }
+        public string VaiTro { get; set; }
     }
 }

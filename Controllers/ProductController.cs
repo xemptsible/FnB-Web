@@ -10,9 +10,9 @@ namespace WebFnB.Controllers
     public class ProductController : Controller
     {
         QLBANHANGEntities db = new QLBANHANGEntities();
-        private List<SP> LaySP(int soluong)
+        private List<SanPham> LaySP(int soluong)
         {
-            return db.SPs.OrderByDescending(sp => sp.TenSP).Take(soluong).ToList();
+            return db.SanPhams.OrderByDescending(sp => sp.TenSP).Take(soluong).ToList();
         }
         // GET: Product
         public ActionResult Index()
@@ -23,17 +23,17 @@ namespace WebFnB.Controllers
 
         public ActionResult SPTheoNhaCungCap(int id)
         {
-            var dsSachTheoNhaCungCap = db.SPs.Where( sp => sp.MaNCC == id).ToList();
+            var dsSachTheoNhaCungCap = db.SanPhams.Where( sp => sp.MaNCC == id).ToList();
             return View("Index", dsSachTheoNhaCungCap);
         }
         public ActionResult SPTheoLSP(int id)
         {
-            var dsSachNXB = db.SPs.Where(sp => sp.MaLoaiSP == id).ToList();
+            var dsSachNXB = db.SanPhams.Where(sp => sp.MaLoaiSP == id).ToList();
             return View("Index", dsSachNXB);
         }
         public ActionResult Details(int id)
         {
-            var sach = db.SPs.FirstOrDefault(s => s.MaSP == id);
+            var sach = db.SanPhams.FirstOrDefault(s => s.MaSP == id);
             return View(sach);
         }
     }
