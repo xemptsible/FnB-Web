@@ -12,30 +12,24 @@ namespace WebFnB.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class SanPham
+    public partial class HD
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SanPham()
+        public HD()
         {
             this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
-            this.DanhGias = new HashSet<DanhGia>();
         }
     
-        public int MaSP { get; set; }
-        public string TenSP { get; set; }
-        public string MoTa { get; set; }
-        public Nullable<decimal> GiaBan { get; set; }
-        public Nullable<decimal> GiaNhap { get; set; }
-        public string Anh { get; set; }
-        public Nullable<int> MaLoaiSP { get; set; }
-        public Nullable<int> MaNCC { get; set; }
-        public Nullable<int> SoLuongTon { get; set; }
+        public int MaHD { get; set; }
+        public Nullable<System.DateTime> NgayDat { get; set; }
+        public Nullable<System.DateTime> NgayGiao { get; set; }
+        public Nullable<bool> TinhTrang { get; set; }
+        public Nullable<int> MaKH { get; set; }
+        public Nullable<int> MaTT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DanhGia> DanhGias { get; set; }
-        public virtual LoaiSP LoaiSP { get; set; }
-        public virtual NCungCap NCungCap { get; set; }
+        public virtual KH KH { get; set; }
+        public virtual ThanhToan ThanhToan { get; set; }
     }
 }

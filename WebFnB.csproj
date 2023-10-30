@@ -158,10 +158,10 @@
     <Compile Include="Models\DanhGia.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\HoaDon.cs">
+    <Compile Include="Models\HD.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\KhachHang.cs">
+    <Compile Include="Models\KH.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiSP.cs">
@@ -171,7 +171,7 @@
     <Compile Include="Models\NCungCap.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SanPham.cs">
+    <Compile Include="Models\SP.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ThanhToan.cs">

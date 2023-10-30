@@ -17,7 +17,7 @@ namespace WebFnB.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NCungCap()
         {
-            this.SanPhams = new HashSet<SanPham>();
+            this.SPs = new HashSet<SP>();
         }
     
         public int MaNCC { get; set; }
@@ -26,6 +26,6 @@ namespace WebFnB.Models
         public string SDT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SanPham> SanPhams { get; set; }
+        public virtual ICollection<SP> SPs { get; set; }
     }
 }

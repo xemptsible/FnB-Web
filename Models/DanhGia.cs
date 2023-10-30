@@ -21,7 +21,7 @@ namespace WebFnB.Models
         public Nullable<int> MaKH { get; set; }
         public Nullable<int> MaSP { get; set; }
     
-        public virtual KhachHang KhachHang { get; set; }
-        public virtual SanPham SanPham { get; set; }
+        public virtual KH KH { get; set; }
+        public virtual SP SP { get; set; }
     }
 }

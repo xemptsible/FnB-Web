@@ -19,7 +19,7 @@ namespace WebFnB.Models
         public Nullable<int> SoLuong { get; set; }
         public Nullable<decimal> DonGia { get; set; }
     
-        public virtual HoaDon HoaDon { get; set; }
-        public virtual SanPham SanPham { get; set; }
+        public virtual HD HD { get; set; }
+        public virtual SP SP { get; set; }
     }
 }
