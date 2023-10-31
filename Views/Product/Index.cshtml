@@ -1,5 +1,6 @@
 ﻿@using WebFnB.Models
-@model IEnumerable<SP>
+@using PagedList.Mvc
+@model PagedList.PagedList<SP>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -21,5 +22,10 @@
                 <p class="card-text">@sp.GiaBan</p>
             </div>
         </div>
+        <!-- Thêm mã phân trang -->
     }
+</div>
+<br />
+<div class="pagination-container">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>

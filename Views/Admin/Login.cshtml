@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Simple Login Form</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="~/Content/reset.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/structure.css">
+</head>
+<body>
+    <h2>@ViewBag.ThongBao</h2>
+    @using (Html.BeginForm("Login", "Admin", FormMethod.Post, new { @class = "box login" }))
+    {
+        @Html.ValidationSummary(true)
+        <fieldset class="boxBody">
+            <label>Username</label>
+            <input name="TenDN" type="text" tabindex="1" placeholder="Username"
+                   required>
+            <label>
+                <a href="#" class="rLink" tabindex="5">
+                    Forget your
+                    password?
+                </a>Password
+            </label>
+            <input name="MatKhau" type="password" tabindex="2" placeholder="Password"
+                   required>
+        </fieldset>
+        <footer>
+            <label><input type="checkbox" tabindex="3">Keep me logged in</label>
+            <input type="submit" class="btnLogin" value="Login" tabindex="4">
+        </footer>
+    }
+</body>
+</html>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,10 +16,12 @@ namespace WebFnB.Controllers
             return db.SPs.OrderByDescending(sp => sp.TenSP).Take(soluong).ToList();
         }
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
             var dsSP = LaySP(10);
-            return View(dsSP);
+            return View(dsSP.ToPagedList(pageNum, pageSize));
         }
 
         public ActionResult SPTheoNhaCungCap(int id)
