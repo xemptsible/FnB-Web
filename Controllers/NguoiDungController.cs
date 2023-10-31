@@ -74,7 +74,7 @@ namespace WebFnB.Controllers
                         ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
                         //Lưu vào session
                         Session["TaiKhoan"] = khach;
-                        return RedirectToAction("Index","Home");
+                        return RedirectToAction("Index","Product");
                     }
                     else
                         ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";

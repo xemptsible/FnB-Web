@@ -1,0 +1,85 @@
+﻿@using WebFnB.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<SP>
+@{
+    ViewBag.Title = "SanPham";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>QUẢN LÝ THÔNG TIN SẢN PHẨM</h2>
+
+<p>
+    @Html.ActionLink("Thêm sản phẩm", "ThemSanPham")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaSP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenSP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().GiaBan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().GiaNhap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Anh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaLoaiSP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaNCC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().SoLuongTon)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaBan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaNhap)
+            </td>
+            <td>
+                <img src="~/Images/@item.Anh" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiSP.MaLoaiSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NCungCap.MaNCC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongTon)
+            </td>
+            <td style="width: 150px;">
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Chi tiết", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Xóa", "Delete", new { /* id=item.PrimaryKey */ })
+            </td style="width:>
+        </tr>
+        <a href="~/Views/Admin/SanPham.cshtml">~/Views/Admin/SanPham.cshtml</a>
+    }
+
+</table>

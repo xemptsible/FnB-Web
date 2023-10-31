@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using WebFnB.Models;
 
 namespace WebFnB.Controllers
@@ -10,15 +11,13 @@ namespace WebFnB.Controllers
     public class ProductController : Controller
     {
         QLBANHANGEntities db = new QLBANHANGEntities();
-        private List<SP> LaySP(int soluong)
-        {
-            return db.SPs.OrderByDescending(sp => sp.TenSP).Take(soluong).ToList();
-        }
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var dsSP = LaySP(10);
-            return View(dsSP);
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
+            var dsSP = db.SPs.ToList();
+            return View(dsSP.ToPagedList(pageNum, pageSize));
         }
 
         public ActionResult SPTheoNhaCungCap(int id)
