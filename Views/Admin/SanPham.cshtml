@@ -1,4 +1,4 @@
-﻿@using WebFnB.Models
+@using WebFnB.Models
 @using PagedList.Mvc
 @model PagedList.PagedList<SP>
 @{
@@ -74,10 +74,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.SoLuongTon)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            <td style="width: 150px;>
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Chi tiết", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Xóa", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
     }

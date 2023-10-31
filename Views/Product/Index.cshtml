@@ -1,4 +1,4 @@
-﻿@using WebFnB.Models
+@using WebFnB.Models
 @using PagedList.Mvc
 @model PagedList.PagedList<SP>
 @{
@@ -26,6 +26,18 @@
     }
 </div>
 <br />
+
 <div class="pagination-container">
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>
+<div class="containterdropdown">
+    <div class="dropdown">
+        Results Per Page
+    </div>
+    @Html.DropDownList("pageSize", new SelectList(new List<int> { 5, 10, 20 }, Model.PageSize), new { onchange = "this.form.submit();" })
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>  
