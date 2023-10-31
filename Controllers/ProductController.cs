@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,9 @@ namespace WebFnB.Controllers
         {
             int pageSize = 5;
             int pageNum = (page ?? 1);
+
             var dsSP = db.SPs.ToList();
+
             return View(dsSP.ToPagedList(pageNum, pageSize));
         }
 
