@@ -14,31 +14,40 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.First().MaSP)
+            Mã Sản phẩm
+            @*@Html.DisplayNameFor(model => model.First().MaSP)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().TenSP)
+            Tên Sản Phẩm
+            @*@Html.DisplayNameFor(model => model.First().TenSP)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().MoTa)
+            Mô Tả
+            @*@Html.DisplayNameFor(model => model.First().MoTa)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().GiaBan)
+            Giá Bán
+            @*@Html.DisplayNameFor(model => model.First().GiaBan)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().GiaNhap)
+            Giá Nhập
+            @*@Html.DisplayNameFor(model => model.First().GiaNhap)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Anh)
+            Ảnh
+            @*@Html.DisplayNameFor(model => model.First().Anh)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().MaLoaiSP)
+            Mã Loại Sản Phẩm
+            @*@Html.DisplayNameFor(model => model.First().MaLoaiSP)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().MaNCC)
+            Mã Nhà Sản Xuất
+            @*@Html.DisplayNameFor(model => model.First().MaNCC)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().SoLuongTon)
+            Tồn Kho
+            @*@Html.DisplayNameFor(model => model.First().SoLuongTon)*@
         </th>
         <th></th>
     </tr>
@@ -62,7 +71,7 @@
                 @Html.DisplayFor(modelItem => item.GiaNhap)
             </td>
             <td>
-                <img src="~/Images/@item.Anh" />
+                <img src="~/Images/@item.Anh" style="height:100px;width:100px" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LoaiSP.MaLoaiSP)
@@ -77,9 +86,24 @@
                 @Html.ActionLink("Chỉnh sửa", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Chi tiết", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Xóa", "Delete", new { /* id=item.PrimaryKey */ })
-            </td style="width:>
+            </td>
         </tr>
-        <a href="~/Views/Admin/SanPham.cshtml">~/Views/Admin/SanPham.cshtml</a>
     }
-
+    <br />
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("SanPham", new { page }))
+    </div>
+    @*<div class="containterdropdown">
+        <div class="dropdown">
+            Results Per Page
+        </div>
+        @Html.DropDownList("pageSize", new SelectList(new List<int> { 5, 10, 20 }, Model.PageSize), new { onchange = "this.form.submit();" })
+    </div>*@
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
 </table>
+
