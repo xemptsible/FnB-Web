@@ -64,14 +64,16 @@ namespace MvcBookStore.Controllers
         [HttpGet]
         public ActionResult ThemSanPham()
         {
-            ViewBag.MaCD = new SelectList(database.LoaiSPs.ToList(), "MaLoaiSP", "LoaiSP");
+            ViewBag.MaLoaiSP = new SelectList(database.LoaiSPs.ToList(), "MaLoaiSP", "TenLoaiSP");
+            ViewBag.MaNCC = new SelectList(database.LoaiSPs.ToList(), "MaNCC", "TenNCC");
             return View();
         }
 
         [HttpPost]
         public ActionResult ThemSanPham(SP SanPham, HttpPostedFileBase Anh)
         {
-            ViewBag.MaCD = new SelectList(database.LoaiSPs.ToList(), "MaLoaiSP", "LoaiSP");
+            ViewBag.MaLoaiSP = new SelectList(database.LoaiSPs.ToList(), "MaLoaiSP", "TenLoaiSP");
+            ViewBag.MaNCC = new SelectList(database.LoaiSPs.ToList(), "MaNCC", "TenNCC");
             if (Anh == null)
                 return View();
             else
