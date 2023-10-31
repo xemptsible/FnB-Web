@@ -14,10 +14,10 @@ namespace WebFnB.Models
         public decimal GiaBan { get; set; }
         public int SoLuong { get; set; }
 
-        public IEnumerable<CartItem> Items
+       /* public IEnumerable<CartItem> Items
         {
             get { return items; }
-        }
+        }*/
 
         public decimal ThanhTien()
         {
@@ -33,7 +33,7 @@ namespace WebFnB.Models
             this.GiaBan = decimal.Parse(sp.GiaBan.ToString());
             this.SoLuong = 1;
         }
-        public void Update_quantity(int id, int _new_quan)
+        /*public void Update_quantity(int id, int _new_quan)
         {
             var item = items.Find(s => s._product.ProductID == id);
             if (item != null)
@@ -43,6 +43,6 @@ namespace WebFnB.Models
         public void Remove_CartItem(int id)
         {
             items.RemoveAll(s => s._product.ProductID == id);
-        }
+        }*/
     }
 }
