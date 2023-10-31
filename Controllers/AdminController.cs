@@ -1,4 +1,4 @@
-using WebFnB.Models;
+﻿using WebFnB.Models;
 using PagedList;
 using System;
 using System.IO;
@@ -7,12 +7,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-
-namespace WebFnB.Controllers
+namespace MvcBookStore.Controllers
 {
     public class AdminController : Controller
     {
+        // Use DbContext to manage database
         QLBANHANGEntities database = new QLBANHANGEntities();
+
         // GET: Admin
         public ActionResult Index()
         {
@@ -21,7 +22,6 @@ namespace WebFnB.Controllers
             return View();
         }
         [HttpGet]
-
         public ActionResult Login()
         {
             return View();
@@ -31,27 +31,21 @@ namespace WebFnB.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Kiểm tra xem tên đăng nhập và mật khẩu có được cung cấp không
-                if (string.IsNullOrEmpty(admin.TenDN) || string.IsNullOrEmpty(admin.MatKhau))
+                if (string.IsNullOrEmpty(admin.TenDN))
+                    ModelState.AddModelError(string.Empty, "User name không được để trống");
+                if (string.IsNullOrEmpty(admin.MatKhau))
+                    ModelState.AddModelError(string.Empty, "Password không được để trống");
+                //Kiểm tra có admin này hay chưa
+                var adminDB = database.Admins.FirstOrDefault(ad => ad.TenDN ==
+                admin.TenDN && ad.MatKhau == admin.MatKhau);
+                if (adminDB == null)
+                    ModelState.AddModelError(string.Empty, "Tên đăng nhập hoặc mật không đúng");
+                else
                 {
-                    ModelState.AddModelError(string.Empty, "Tên đăng nhập và mật khẩu không được để trống");
-                    return View();
-                }
+                    Session["Admin"] = adminDB;
 
-                using (var db = new QLBANHANGEntities()) // Sử dụng using để đảm bảo giải phóng tài nguyên
-                {
-                    // Tìm admin trong cơ sở dữ liệu
-                    var adminDB = db.Admins.FirstOrDefault(a => a.TenDN == admin.TenDN && a.MatKhau == admin.MatKhau);
-                    if (adminDB != null)
-                    {
-                        // Đăng nhập thành công, lưu thông tin admin vào Session
-                        Session["Admin"] = adminDB;
-                        return RedirectToAction("Index", "Admin"); // Điều hướng đến trang quản trị
-                    }
-                    else
-                    {
-                        ModelState.AddModelError(string.Empty, "Tên đăng nhập hoặc mật khẩu không đúng");
-                    }
+                    ViewBag.ThongBao = "Đăng nhập admin thành công";
+                    return RedirectToAction("Index", "Admin");
                 }
             }
             return View();
