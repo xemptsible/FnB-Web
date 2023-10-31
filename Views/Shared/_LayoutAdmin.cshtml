@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,20 +9,33 @@
 </head>
 <body>
     <div class="container-fluid">
-        <!-- Navbar được tùy chỉnh với các thay đổi màu sắc và kiểu dáng ở trên -->
+        <!-- Grey with black text -->
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    @Html.ActionLink("TRANG CHỦ", "Index", "Admin", null, new { @class = "nav-link" })
+                    @Html.ActionLink("TRANG CHỦ", "Index", "Admin", null, new
+                    {
+                        @class = "nav-link"
+                    })
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("QUẢN LÝ KHÁCH HÀNG", "KhachHang", "Admin", null, new { @class = "nav-link" })
+                    @Html.ActionLink("QUẢN LÝ CHỦ ĐỀ", "ChuDe", "Admin", null, new
+                    {
+                    @class = "nav-link"
+                    })
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("QUẢN LÝ HÓA ĐƠN", "HoaDon", "Admin", null, new { @class = "nav-link" })
+                    @Html.ActionLink("QUẢN LÝ NXB", "NhaXuatBan", "Admin", null, new
+                    {
+                    @class = "nav-link"
+                    })
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("QUẢN LÝ SẢN PHẨM", "SanPham", "Admin", null, new { @class = "nav-link" })
+                    @Html.ActionLink("QUẢN LÝ SÁCH", "Sach", "Admin", null, new
+                    {
+                        @class
+                    = "nav-link"
+                    })
                 </li>
             </ul>
         </nav>
