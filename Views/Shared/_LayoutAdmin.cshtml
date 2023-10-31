@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Grey with black text -->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    @Html.ActionLink("TRANG CHỦ", "Index", "Admin", null, new
+                    {
+                        @class = "nav-link"
+                    })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("QUẢN LÝ CHỦ ĐỀ", "ChuDe", "Admin", null, new
+                    {
+                    @class = "nav-link"
+                    })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("QUẢN LÝ NXB", "NhaXuatBan", "Admin", null, new
+                    {
+                    @class = "nav-link"
+                    })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("QUẢN LÝ SÁCH", "Sach", "Admin", null, new
+                    {
+                        @class
+                    = "nav-link"
+                    })
+                </li>
+            </ul>
+        </nav>
+        <br />
+        <div>
+            @RenderBody()
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
