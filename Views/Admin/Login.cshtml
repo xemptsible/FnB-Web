@@ -2,35 +2,71 @@
     Layout = null;
 }
 <!DOCTYPE HTML>
+
 <html>
 <head>
-    <title>Simple Login Form</title>
+    <title>ĐĂNG NHẬP ADMIN</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" type="text/css" href="~/Content/reset.css">
-    <link rel="stylesheet" type="text/css" href="~/Content/structure.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/login.css">
+
+
 </head>
 <body>
     <h2>@ViewBag.ThongBao</h2>
     @using (Html.BeginForm("Login", "Admin", FormMethod.Post, new { @class = "box login" }))
     {
         @Html.ValidationSummary(true)
-        <fieldset class="boxBody">
-            <label>Username</label>
-            <input name="TenDN" type="text" tabindex="1" placeholder="Username"
-                   required>
-            <label>
-                <a href="#" class="rLink" tabindex="5">
-                    Forget your
-                    password?
-                </a>Password
-            </label>
-            <input name="MatKhau" type="password" tabindex="2" placeholder="Password"
-                   required>
-        </fieldset>
-        <footer>
-            <label><input type="checkbox" tabindex="3">Keep me logged in</label>
-            <input type="submit" class="btnLogin" value="Login" tabindex="4">
-        </footer>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="column" id="main">
+                            <h1>Sign Up </h1>
+
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputName">UserName</label>
+                                    <br />
+                                    <input name="TenDN" type="text" class="form-control" tabindex="1" id="exampleInputName" placeholder="UserName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <br />
+                                    <input name="MatKhau" type="password" tabindex="2" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                                </div>
+                                <label>
+                                    <a href="#" class="rLink" tabindex="5">
+                                        Forget your
+                                        password?
+                                    </a>
+                                </label>
+                                <label><input type="checkbox" tabindex="3">Keep me logged in</label>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                        </div>
+                        <div>
+                            <?xml version="1.0" encoding="UTF-8" ?>
+                            <svg width="67px" height="578px" viewBox="0 0 67 578" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+                                <title>Path</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <path d="M11.3847656,-5.68434189e-14 C-7.44726562,36.7213542 5.14322917,126.757812 49.15625,270.109375 C70.9827986,341.199016 54.8877465,443.829224 0.87109375,578 L67,578 L67,-5.68434189e-14 L11.3847656,-5.68434189e-14 Z" id="Path" fill="cornflowerblue"></path>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="column" id="secondary">
+                            <div class="sec-content">
+                                <h2>Welcome Back!</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     }
 </body>
 </html>

@@ -193,6 +193,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\MainLayout.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\reset.css" />
@@ -237,6 +238,7 @@
     <Content Include="Images\hu_tieu_nam_vang.jpg" />
     <Content Include="Images\Kem_chuoi.jpg" />
     <Content Include="Images\limburg.jpg" />
+    <Content Include="Images\logo.JPG" />
     <Content Include="Images\macaron.jpg" />
     <Content Include="Images\mixao.jpg" />
     <Content Include="Images\mi_quang.jpg" />
@@ -422,6 +424,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\SanPham.cshtml" />
     <Content Include="Views\Admin\ThemSanPham.cshtml" />
+    <Content Include="Views\Product\LayLSP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
