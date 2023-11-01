@@ -37,18 +37,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <div class="category-title font-weight-bold mt-3 mb-3">ĐỒ ĂN</div>
-                <ul class="list-group">
-                    <li class="list-group-item">First category</li>
-                    <li class="list-group-item">Second category</li>
-                    <li class="list-group-item">Third category</li>
-                </ul>
-                <div class="category-title font-weight-bold mt-3 mb-3">NƯỚC UỐNG</div>
-                <ul class="list-group">
-                    <li class="list-group-item">First category</li>
-                    <li class="list-group-item">Second category</li>
-                    <li class="list-group-item">Third category</li>
-                </ul>
+                @Html.Action("LayLSP", "Product")
+                @Html.Action("LayNCC", "Product")
             </div>
             <div class="container body-content col-md-9">
                 @RenderBody()

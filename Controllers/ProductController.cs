@@ -20,15 +20,31 @@ namespace WebFnB.Controllers
             return View(dsSP.ToPagedList(pageNum, pageSize));
         }
 
-        public ActionResult SPTheoNhaCungCap(int id)
+        public ActionResult LayLSP()
         {
-            var dsSachTheoNhaCungCap = db.SPs.Where( sp => sp.MaNCC == id).ToList();
-            return View("Index", dsSachTheoNhaCungCap);
+            var dsLSP = db.LoaiSPs.ToList();
+            return PartialView(dsLSP);
         }
-        public ActionResult SPTheoLSP(int id)
+
+        public ActionResult LayNCC()
         {
-            var dsSachNXB = db.SPs.Where(sp => sp.MaLoaiSP == id).ToList();
-            return View("Index", dsSachNXB);
+
+            var dsNhaCC = db.NCungCaps.ToList();
+            return PartialView(dsNhaCC);
+        }
+        public ActionResult SPTheoNhaCungCap(int id, int? page)
+        {
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
+            var dsSachTheoNhaCungCap = db.SPs.Where(sp => sp.MaNCC == id).ToList();
+            return View("Index", dsSachTheoNhaCungCap.ToPagedList(pageNum, pageSize));
+        }
+        public ActionResult SPTheoLSP(int id, int? page)
+        {
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
+            var dsLoaiSP = db.SPs.Where(sp => sp.MaLoaiSP == id).ToList();
+            return View("Index", dsLoaiSP.ToPagedList(pageNum, pageSize));
         }
         public ActionResult Details(int id)
         {
