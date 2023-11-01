@@ -10,12 +10,14 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="@Url.Action("Index", "Product")">
+
+            <img src="~/Images/logo.jpg" width="200" height="180"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="container">
-            @Html.ActionLink("Food and Beverage", "Index", "Product", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarToggle"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between" id="navbarToggle">
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Trang chủ", "Index", "Product", new { area = "" }, new { @class = "nav-link" })</li>
