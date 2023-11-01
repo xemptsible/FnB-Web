@@ -57,8 +57,7 @@ namespace MvcBookStore.Controllers
             int pageSize = 5;
             //Tạo biến số trang
             int pageNum = (page ?? 1);
-            return View(dsSanPham.OrderBy(sp => sp.MaSP).ToPagedList(pageNum,
-            pageSize));
+            return View(dsSanPham.OrderBy(sp => sp.MaSP).ToPagedList(pageNum,pageSize));
         }
 
         [HttpGet]
@@ -104,6 +103,26 @@ namespace MvcBookStore.Controllers
                 return null;
             }
             return View(sanPham);
+        }
+
+        public ActionResult NCC(int? page)
+        {
+            var dsNCC = database.NCungCaps.ToList();
+            //Tạo biến cho biết số sách mỗi trang
+            int pageSize = 5;
+            //Tạo biến số trang
+            int pageNum = (page ?? 1);
+            return View(dsNCC.OrderBy(ncc => ncc.MaNCC).ToPagedList(pageNum, pageSize));
+        }
+
+        public ActionResult LoaiSP(int? page)
+        {
+            var dsLoaiSP = database.LoaiSPs.ToList();
+            //Tạo biến cho biết số sách mỗi trang
+            int pageSize = 5;
+            //Tạo biến số trang
+            int pageNum = (page ?? 1);
+            return View(dsLoaiSP.OrderBy(lsp => lsp.MaLoaiSP).ToPagedList(pageNum, pageSize));
         }
     }
 }
