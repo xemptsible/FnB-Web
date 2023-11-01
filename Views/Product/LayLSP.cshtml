@@ -4,9 +4,8 @@
 <ul class="list-group">
     @foreach (var loaisp in Model)
     {
-        <li>
-            <a href="@Url.Action("SPTheoLSP", "Product", new { id=loaisp.MaLoaiSP })"
-               class="list-group-item list-group-item-action">
+        <li class="list-group-item list-group-item-action list-unstyled nav-link">
+            <a href="@Url.Action("SPTheoLSP", "Product", new { id=loaisp.MaLoaiSP })">
                 @loaisp.TenLoaiSP
             </a>
         </li>
