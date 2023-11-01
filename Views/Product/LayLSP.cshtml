@@ -1,0 +1,14 @@
+﻿@using WebFnB.Models
+@model IEnumerable<LoaiSP>
+<div class="title">Loại sản phẩm</div>
+<ul class="list-group">
+    @foreach (var loaisp in Model)
+    {
+    <li>
+        <a href="@Url.Action("SPTheoLSP", "Product", new { id=loaisp.MaLoaiSP })"
+           class="list-group-item list-group-item-action">
+            @loaisp.TenLoaiSP
+        </a>
+    </li>
+    }
+</ul>

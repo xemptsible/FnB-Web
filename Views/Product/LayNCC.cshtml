@@ -1,0 +1,15 @@
+﻿@using WebFnB.Models
+@model IEnumerable<NCungCap>
+<div class="title">Nhà cung cấp</div>
+<ul class="list-group">
+    @foreach (var nhacungcap in Model)
+    {
+        <li>
+            <a href="@Url.Action("SPTheoNhaCungCap", "Product", new { id=nhacungcap.MaNCC})"
+               class="list-group-item list-group-item-action">
+                @nhacungcap.TenNCC
+            </a>
+        </li>
+    }
+</ul>
+

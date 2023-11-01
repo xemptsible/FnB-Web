@@ -1,0 +1,43 @@
+﻿@using WebFnB.Models
+@model List<MatHangMua>
+@{
+    ViewBag.Title = "HienThiGioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">THÔNG TIN GIỎ HÀNG</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Ảnh minh họa</th>
+            <th>Số lượng</th>
+            <th>Đơn giá</th>
+            <th>Thành tiền</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sp in Model)
+        {
+            <tr>
+                <td>@sp.MaSP</td>
+                <td>@sp.TenSP</td>
+                <td><img src="~/Images/@sp.Anh"style="height:64px;width:64px" /></td>
+                <td>@sp.SoLuong</td>
+                <td>@sp.GiaBan</td>
+                <td>@sp.ThanhTien()</td>
+            </tr>
+        }
+        <tr style="font-weight:bold; text-align:right; color:red;">
+            <td colspan="5">Tổng số lượng: @ViewBag.TongSL</td>
+            <td colspan="1">Tổng tiền: @ViewBag.TongTien</td>
+        </tr>
+        <tr style="font-weight:bold; text-align:center;">
+            <td colspan="9">
+                @Html.ActionLink("ĐẶT HÀNG", "DatHang", null, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+    </tbody>
+</table>
+
