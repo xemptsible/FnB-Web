@@ -213,6 +213,10 @@
     <Content Include="Images\Banh_chuoi_hap_nuoc_cot_dua.jpg" />
     <Content Include="Images\Banh_chuoi_nuong.jpg" />
     <Content Include="Images\Banh_da_lon.jpg" />
+    <Content Include="Images\banner.jpg" />
+    <Content Include="Images\banner1.jpg" />
+    <Content Include="Images\banner2.jpg" />
+    <Content Include="Images\banner3.png" />
     <Content Include="Images\blackforest.jpg" />
     <Content Include="Images\bunnem.jpg" />
     <Content Include="Images\bunthit.jpg" />
@@ -269,6 +273,7 @@
       <LastGenOutput>BanHang.Context.cs</LastGenOutput>
       <DependentUpon>BanHang.edmx</DependentUpon>
     </Content>
+    <Content Include="Models\BanHang.edmx.sql" />
     <Content Include="Models\BanHang.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BanHang.edmx</DependentUpon>

@@ -5,7 +5,35 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .btnStyle {
+        border-radius: 6px;
+        cursor: pointer;
+        color: #ffffff;
+        background-size: 200%;
+        padding: 13px;
+        width: 193px;
+        transition: all .5s !important;
+        outline: none;
+        border: none;
+    }
 
+        .btnStyle:focus {
+            outline: none;
+        }
+
+    .btn1 {
+        background-image: linear-gradient(to left,#FFC312,#EE5A24,#FFC312);
+    }
+
+    .btn2 {
+        background-image: linear-gradient(to left, #badc58,#6ab04c,#badc58);
+    }
+
+    .btnStyle:hover {
+        background-position: right;
+    }
+</style>
 <h2>THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
 <br />
 <div class="row">
@@ -18,10 +46,11 @@
             <span style="font-weight: bold">Mô tả:</span> @Model.MoTa
         </p>
         <p class="price">
-            Giá bán: <span style="color:red; font-size:32px;">@Model.GiaBan VNĐ</span>
+            Giá bán:<span style="color: red; font-size: 32px;">@Model.GiaBan.Value.ToString("#,##0.###") VND</span>
         </p>
-        <a class="btn btn-primary" href="@Url.Action("ThemSanPhamVaoGio", "Cart", new{ MaSP = Model.MaSP })">
-            Đặt mua
+        <a class="btnStyle btn1 mr-3" data-aos="fade-left" data-aos-duration="1000" href="@Url.Action("ThemSanPhamVaoGio", "Cart", new{ MaSP = Model.MaSP })">
+            Thêm sản phẩm vào giỏ
         </a>
+        <button class="btnStyle btn2" data-aos="fade-left" data-aos-duration="1000"><a href="@Url.Action("Index","Product")" class="text-white" style="text-decoration: none">XEM THÊM SẢN PHẨM</a></button>
     </div>
 </div>

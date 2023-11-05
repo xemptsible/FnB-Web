@@ -6,44 +6,76 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/JS/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="~/JS/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="~/Lightbox/lightbox.min.css" />
+    <link rel="stylesheet" href="~/aos-library/aos.css" />
+    <link href="~/Style.css" rel="stylesheet" />
+    <link href="~/StyleForm.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container-fluid">
-        <!-- Grey with black text -->
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    @Html.ActionLink("TRANG CHỦ", "Index", "Admin", null, new
-                    {
-                        @class = "nav-link"
-                    })
-                </li>
-                <li class="nav-item">
-                    @Html.ActionLink("QUẢN LÝ lOẠI SẢN PHẨM", "LoaiSP", "Admin", null, new
-                    {
-                    @class = "nav-link"
-                    })
-                </li>
-                <li class="nav-item">
-                    @Html.ActionLink("QUẢN LÝ NHÀ CUNG CẤP", "NCC", "Admin", null, new
-                    {
-                    @class = "nav-link"
-                    })
-                </li>
-                <li class="nav-item">
-                    @Html.ActionLink("QUẢN LÝ SẢN PHẨM", "SanPham", "Admin", null, new
-                    {
-                        @class
-                    = "nav-link"
-                    })
-                </li>
-            </ul>
-        </nav>
-        <br />
-        <div>
-            @RenderBody()
+    <style>
+        .backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 15px;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1;
+        }
+
+            .backToTop img {
+                width: 45px;
+                height: 45px;
+            }
+
+        .cd-top--is-visible {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+    <div class="w-100">
+        <div class="row w-100 ml-0">
+            <div class="col-2" style="min-height: 100vh">
+                <nav class="sidebar">
+                    <div class="text py-3">
+                        <div class="mb-2">
+                            <img src="https://picsum.photos/200/200" style="width: 50px; height: 50px; border-radius: 50%" />
+                        </div>
+                        <h3>Admin</h3>
+                    </div>
+                    <ul>
+                        <li>
+                            <p class="feat-btn mb-0"><i class="fa fa-th-list pr-3"></i>Quản lý<span class="fas fa-caret-down first"></span></p>
+                            <ul class="feat-show">
+                                <li><a href="@Url.Action("SanPham","Admin")">Quản lý sản phẩm</a></li>
+                                <li><a href="@Url.Action("LoaiSP","Admin")">Quản lý loại sản phẩm</a></li>
+                                <li><a href="@Url.Action("NCC","Admin")">Quản lí nhà cung cấp</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="serv-btn mb-0"><i class="fa fa-tshirt pr-3"></i>Quản lý nâng cao <span class="fas fa-caret-down second"></span></p>
+                            <ul class="serv-show">
+                                <li><a href="@Url.Action("KhachHang","Admin")">Quản lý khách hàng</a></li>
+                                <li><a href="@Url.Action("DonHang","Admin")">Quản lý đơn hàng</a></li>
+                                <li><a href="@Url.Action("ThanhToán","Admin")">Quản lý Phương thức thanh toán</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-arrow-left pr-3"></i>Đăng Xuất</a></li>
+                    </ul>
+                    <a href="#" class="collapseBtn"></a>
+                </nav>
+            </div>
+            <div class="col-10 pl-5 pr-2" style="background-color: #f1f2f6;">
+                <div class="content">
+                    @RenderBody()
+                </div>
+            </div>
         </div>
     </div>
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
