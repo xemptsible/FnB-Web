@@ -14,14 +14,14 @@
         <EntityTypeShape EntityType="QLBANHANGModel.NCungCap" Width="1.5" PointX="0.75" PointY="3.5" />
         <EntityTypeShape EntityType="QLBANHANGModel.SP" Width="1.5" PointX="3" PointY="2.75" />
         <EntityTypeShape EntityType="QLBANHANGModel.ThanhToan" Width="1.5" PointX="0.75" PointY="11.5" />
-        <AssociationConnector Association="QLBANHANGModel.FK__ChiTietHoa__MaHD__48CFD27E" />
-        <AssociationConnector Association="QLBANHANGModel.FK__ChiTietHoa__MaSP__49C3F6B7" />
-        <AssociationConnector Association="QLBANHANGModel.FK__DanhGia__MaKH__4CA06362" />
-        <AssociationConnector Association="QLBANHANGModel.FK__DanhGia__MaSP__4D94879B" />
-        <AssociationConnector Association="QLBANHANGModel.FK__HD__MaKH__412EB0B6" />
-        <AssociationConnector Association="QLBANHANGModel.FK__HD__MaTT__4222D4EF" />
-        <AssociationConnector Association="QLBANHANGModel.FK__SP__MaLoaiSP__44FF419A" />
-        <AssociationConnector Association="QLBANHANGModel.FK__SP__MaNCC__45F365D3" />
+        <AssociationConnector Association="QLBANHANGModel.FK__ChiTietHoa__MaHD__35BCFE0A" />
+        <AssociationConnector Association="QLBANHANGModel.FK__ChiTietHoa__MaSP__36B12243" />
+        <AssociationConnector Association="QLBANHANGModel.FK__DanhGia__MaKH__398D8EEE" />
+        <AssociationConnector Association="QLBANHANGModel.FK__DanhGia__MaSP__3A81B327" />
+        <AssociationConnector Association="QLBANHANGModel.FK__HD__MaKH__2E1BDC42" />
+        <AssociationConnector Association="QLBANHANGModel.FK__HD__MaTT__2F10007B" />
+        <AssociationConnector Association="QLBANHANGModel.FK__SP__MaLoaiSP__31EC6D26" />
+        <AssociationConnector Association="QLBANHANGModel.FK__SP__MaNCC__32E0915F" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
