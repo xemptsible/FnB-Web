@@ -18,6 +18,12 @@ namespace WebFnB
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                    name: "Delete",
+                    url: "Admin/Delete/{id}",
+                    defaults: new { controller = "Admin", action = "Delete" }
+);
         }
+
     }
 }

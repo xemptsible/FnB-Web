@@ -431,6 +431,8 @@
     <Content Include="Views\Admin\ThemSanPham.cshtml" />
     <Content Include="Views\Product\LayLSP.cshtml" />
     <Content Include="Views\Product\LayNCC.cshtml" />
+    <Content Include="Views\Admin\EditSanPham.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
