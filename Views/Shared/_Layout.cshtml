@@ -21,7 +21,7 @@
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="@Url.Action("Index", "Product")">
 
-            <img src="~/Images/logo.jpg" width="200" height="180"/>
+            <img src="~/Images/logo.jpg" width="200" height="180" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,15 +34,22 @@
                     <li>@Html.ActionLink("Liên lạc", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Đăng nhập", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Đăng xuất", "DangNhap", "NguoiDung", new { area = "" }, new { @class = "nav-link" })</li>
+
                 </ul>
-            </div>
-            <form class="d-flex">
-                <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success mr-4" type="submit">Search</button>
-            </form>
-            <div class="navbar-nav border rounded p-1">
-                @Html.Action("GioHangPartial", "Cart")
-            </div>
+            </div>  
+            <ul>
+                @using (Html.BeginForm("KQTimKiem", "TimKiem"))
+                {
+                    <p></p>
+                    <input type="text" name="tensp" placeholder="nhập vào tên món" />
+                    <input type="submit" value="Tìm kiếm" />
+
+                }
+            </ul>
+        </div>
+
+        <div class="navbar-nav border rounded p-1">
+            @Html.Action("GioHangPartial", "Cart")
         </div>
     </nav>
     <div class="container">
