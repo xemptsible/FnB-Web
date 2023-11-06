@@ -138,6 +138,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -202,8 +203,6 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\ABC_Bakey.png" />
-    <Content Include="Images\alex-lvrs-cocktail.jpg" />
-    <Content Include="Images\amirali-mirhashemian-redvelvet.jpg" />
     <Content Include="Images\banhbao.jpg" />
     <Content Include="Images\banhdonut.jpg" />
     <Content Include="Images\banhgio.jpg" />
@@ -213,6 +212,7 @@
     <Content Include="Images\Banh_chuoi_hap_nuoc_cot_dua.jpg" />
     <Content Include="Images\Banh_chuoi_nuong.jpg" />
     <Content Include="Images\Banh_da_lon.jpg" />
+    <Content Include="Images\banh_xeo.jpg" />
     <Content Include="Images\banner.jpg" />
     <Content Include="Images\banner1.jpg" />
     <Content Include="Images\banner2.jpg" />
@@ -234,7 +234,6 @@
     <Content Include="Images\Che_nhan_nhuc.jpg" />
     <Content Include="Images\Che_trai_cay.jpg" />
     <Content Include="Images\coca.jpg" />
-    <Content Include="Images\cody-chan-cocktail.jpg" />
     <Content Include="Images\com_tam.jpg" />
     <Content Include="Images\gateau.jpg" />
     <Content Include="Images\goi_cuon.jpg" />
@@ -250,14 +249,12 @@
     <Content Include="Images\momo.png" />
     <Content Include="Images\nuocepcam.jpg" />
     <Content Include="Images\nuoceptao.jpg" />
-    <Content Include="Images\olena-bohovyk-drinks.jpg" />
     <Content Include="Images\Oricombank_logo.svg.png" />
     <Content Include="Images\pavlova.jpg" />
     <Content Include="Images\pepsi.jpg" />
     <Content Include="Images\pho_bo.jpg" />
     <Content Include="Images\Rau_cau_dua.jpg" />
-    <Content Include="Images\shania-pinnata-cake.jpg" />
-    <Content Include="Images\shopping-cart.png" />
+    <Content Include="Images\shoping.jpg" />
     <Content Include="Images\sodachanh.jpg" />
     <Content Include="Images\suatuoi.jpg" />
     <Content Include="Images\suicao.jpg" />
@@ -266,7 +263,6 @@
     <Content Include="Images\tiramisu.jpg" />
     <Content Include="Images\tradao.jpg" />
     <Content Include="Images\traxanh.jpg" />
-    <Content Include="Images\vishwanth-pindiboyina-cake.jpg" />
     <Content Include="Images\xoiga.jpg" />
     <Content Include="Models\BanHang.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -433,6 +429,7 @@
     <Content Include="Views\Product\LayNCC.cshtml" />
     <Content Include="Views\Admin\EditSanPham.cshtml" />
     <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\TimKiem\KQTimKiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

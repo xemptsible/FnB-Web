@@ -48,7 +48,7 @@
         <p class="price">
             Giá bán:<span style="color: red; font-size: 32px;">@Model.GiaBan.Value.ToString("#,##0.###") VND</span>
         </p>
-        <a class="btnStyle btn1 mr-3" data-aos="fade-left" data-aos-duration="1000" href="@Url.Action("ThemSanPhamVaoGio", "Cart", new{ MaSP = Model.MaSP })">
+        <a class="btnStyle btn1 mr-3 form-inline" data-aos="fade-left" data-aos-duration="1000" href="@Url.Action("ThemSanPhamVaoGio", "Cart", new{ MaSP = Model.MaSP })">
             Thêm sản phẩm vào giỏ
         </a>
         <button class="btnStyle btn2" data-aos="fade-left" data-aos-duration="1000"><a href="@Url.Action("Index","Product")" class="text-white" style="text-decoration: none">XEM THÊM SẢN PHẨM</a></button>
