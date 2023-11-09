@@ -1,74 +1,46 @@
-﻿@using WebFnB.Models
-@using PagedList.Mvc
-@model PagedList.PagedList<NCungCap>
+﻿@model IEnumerable<WebFnB.Models.NCungCap>
 
 @{
     ViewBag.Title = "NCC";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>NHÀ CUNG CẤP</h2>
+<h2>Nhà Cung Cấp</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Tạo mới", "ThemNCC")
 </p>
 <table class="table">
     <tr>
         <th>
-            Mã Nhà Cung Cấp
-            @*@Html.DisplayNameFor(model => model.MaNCC)*@
+            @Html.DisplayNameFor(model => model.TenNCC)
         </th>
         <th>
-            Tên Nhà Cung Cấp
-            @*@Html.DisplayNameFor(model => model.TenNCC)*@
+            @Html.DisplayNameFor(model => model.DiaChi)
         </th>
         <th>
-            Địa chỉ Nhà Cung Cấp
-            @*@Html.DisplayNameFor(model => model.DiaChi)*@
-        </th>
-        <th>
-            SDT Nhà Cung Cấp
-            @*@Html.DisplayNameFor(model => model.SDT)*@
+            @Html.DisplayNameFor(model => model.SDT)
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaNCC)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenNCC)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiaChi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SDT)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-    }
-    <br />
-    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-    <div class="MenuTrang">
-        @Html.PagedListPager(Model, page => Url.Action("SanPham", new { page }))
-    </div>
-    @*<div class="containterdropdown">
-            <div class="dropdown">
-                Results Per Page
-            </div>
-            @Html.DropDownList("pageSize", new SelectList(new List<int> { 5, 10, 20 }, Model.PageSize), new { onchange = "this.form.submit();" })
-        </div>*@
-    <style>
-        .MenuTrang li {
-            display: inline;
-        }
-    </style>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNCC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.ActionLink("Chỉnh sửa", "EditNCC", new { id=item.MaNCC }) |
+            @Html.ActionLink("Chi Tiết", "ChiTietNCC", new { id=item.MaNCC }) |
+            @Html.ActionLink("Xóa", "DeleteNCC", new { id=item.MaNCC })
+        </td>
+    </tr>
+}
+
 </table>

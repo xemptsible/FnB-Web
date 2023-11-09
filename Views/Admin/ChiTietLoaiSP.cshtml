@@ -1,0 +1,27 @@
+﻿@model WebFnB.Models.LoaiSP
+
+@{
+    ViewBag.Title = "ChiTietLoaiSP";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi Tiết Loại Sản Phẩm</h2>
+
+<div>
+    <h4>Loại sản phẩm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLoaiSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoaiSP)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaLoaiSP }) |
+    @Html.ActionLink("Quay lại", "LoaiSP")
+</p>

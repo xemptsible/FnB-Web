@@ -431,6 +431,16 @@
     <Content Include="Views\Admin\Delete.cshtml" />
     <Content Include="Views\TimKiem\KQTimKiem.cshtml" />
     <Content Include="Views\Admin\DeleteLoaiSP.cshtml" />
+    <Content Include="Views\Admin\EditLoaiSP.cshtml" />
+    <Content Include="Views\Admin\ChiTietLoaiSP.cshtml" />
+    <Content Include="Views\Admin\ThemLoaiSP.cshtml" />
+    <Content Include="Views\Admin\LoaiSP.cshtml" />
+    <Content Include="Views\Admin\ChiTietSanPham.cshtml" />
+    <Content Include="Views\Admin\ChiTietNCC.cshtml" />
+    <Content Include="Views\Admin\EditNCC.cshtml" />
+    <Content Include="Views\Admin\DeleteNCC.cshtml" />
+    <Content Include="Views\Admin\ThemNCC.cshtml" />
+    <Content Include="Views\Admin\NCC.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
