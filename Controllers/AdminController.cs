@@ -189,6 +189,188 @@ namespace MvcBookStore.Controllers
 
             return RedirectToAction("SanPham"); // Chuyển hướng người dùng sau khi xóa (không cần trang xác nhận)
         }
+        public ActionResult ChiTietSanPham(int id)
+        {
+            var sanPham = database.SPs.FirstOrDefault(sp => sp.MaSP == id);
+
+            if (sanPham == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+
+            // Lấy danh sách các loại sản phẩm và nhà cung cấp
+            ViewBag.MaLoaiSP = new SelectList(database.LoaiSPs.ToList(), "MaLoaiSP", "TenLoaiSP");
+            ViewBag.MaNCC = new SelectList(database.NCungCaps.ToList(), "MaNCC", "TenNCC");
+
+            return View(sanPham);
+        }
+        public ActionResult ChiTietNCC(int id)
+        {
+            var dsNCC = database.NCungCaps.FirstOrDefault(NCC => NCC.MaNCC == id);
+
+            if (dsNCC == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+
+            // Lấy danh sách các loại sản phẩm và nhà cung cấp
+            ViewBag.MaNCC = new SelectList(database.NCungCaps.ToList(), "MaNCC", "TenNCC");
+
+            return View(dsNCC);
+        }
+        public ActionResult EditNCC(int id)
+        {
+            // Lấy thông tin sản phẩm cần chỉnh sửa từ cơ sở dữ liệu
+            var dsNCC = database.NCungCaps.FirstOrDefault(NCC => NCC.MaNCC == id);
+
+            if (dsNCC == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+
+            // Lấy danh sách các loại sản phẩm và nhà cung cấp
+            ViewBag.MaNCC = new SelectList(database.NCungCaps.ToList(), "MaNCC", "TenNCC");
+
+            return View(dsNCC);
+        }
+
+        [HttpPost]
+        public ActionResult EditNCC(NCungCap nCungCap)
+        {
+            if (ModelState.IsValid)
+            {
+                // Lấy sản phẩm từ cơ sở dữ liệu
+                var nCungCapDB = database.NCungCaps.FirstOrDefault(NCC => NCC.MaNCC == nCungCap.MaNCC);
+
+                if (nCungCapDB != null)
+                {
+                    // Cập nhật thông tin sản phẩm từ form chỉnh sửa
+                    nCungCapDB.TenNCC = nCungCap.TenNCC;
+                    nCungCapDB.DiaChi = nCungCap.DiaChi;
+                    nCungCapDB.SDT = nCungCap.SDT;
+
+
+                    // Lưu thay đổi vào cơ sở dữ liệu
+                    database.SaveChanges();
+
+                    ViewBag.ThongBao = "Chỉnh sửa nhà cung cấp thành công";
+                    return RedirectToAction("NCungCap");
+                }
+                else
+                {
+                    ViewBag.ThongBao = "Nhà cung cấp không tồn tại";
+                }
+            }
+
+            return View(nCungCap);
+
+        }
+        public ActionResult DeleteNCC(int id)
+        {
+            var dsNCC = database.NCungCaps.FirstOrDefault(NCC => NCC.MaNCC == id);
+
+            if (dsNCC != null)
+            {
+                database.NCungCaps.Remove(dsNCC);
+                database.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
+            }
+
+            return RedirectToAction("NCungCap"); // Chuyển hướng người dùng sau khi xóa (không cần trang xác nhận)
+        }
+        public ActionResult ThemLoaiSP()
+        {
+            ViewBag.MaLoaiSP = new SelectList(database.LoaiSPs.ToList(), "MaLoaiSP", "TenLoaiSP");
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ThemLoaiSP(LoaiSP loaiSP)
+        {
+            ViewBag.MaLoaiSP = new SelectList(database.LoaiSPs.ToList(), "MaLoaiSP", "TenLoaiSP");
+            return View(loaiSP);
+        }
+        public ActionResult ThemNCC()
+        {
+            ViewBag.MaNCC = new SelectList(database.LoaiSPs.ToList(), "MaNCC", "TenNCC");
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ThemNCC(NCungCap nCungCap) => ViewBag.MaNCC = new SelectList(database.LoaiSPs.ToList(), "MaNCC", "TenNCC");
+        public ActionResult ChiTietLoaiSP(int id)
+        {
+            var dsLoaiSP = database.LoaiSPs.FirstOrDefault(LoaiSP => LoaiSP.MaLoaiSP == id);
+
+            if (dsLoaiSP == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+
+            // Lấy danh sách các loại sản phẩm và nhà cung cấp
+            ViewBag.MaLoaiSP = new SelectList(database.LoaiSPs.ToList(), "MaLoaiSP", "TenLoaiSP");
+            return View(dsLoaiSP);
+        }
+        public ActionResult EditLoaiSP(int id)
+        {
+            // Lấy thông tin sản phẩm cần chỉnh sửa từ cơ sở dữ liệu
+            var dsLoaiSP = database.LoaiSPs.FirstOrDefault(LoaiSP => LoaiSP.MaLoaiSP == id);
+
+            if (dsLoaiSP == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+
+            // Lấy danh sách các loại sản phẩm và nhà cung cấp
+            ViewBag.MaLoaiSP = new SelectList(database.LoaiSPs.ToList(), "MaLoaiSP", "TenLoaiSP");
+
+            return View(dsLoaiSP);
+        }
+
+        [HttpPost]
+        public ActionResult EditLoaiSP(LoaiSP loaiSP)
+        {
+            if (ModelState.IsValid)
+            {
+                // Lấy sản phẩm từ cơ sở dữ liệu
+                var LoaiSPDB = database.LoaiSPs.FirstOrDefault(LoaiSP => LoaiSP.MaLoaiSP == loaiSP.MaLoaiSP);
+
+                if (LoaiSPDB != null)
+                {
+                    // Cập nhật thông tin sản phẩm từ form chỉnh sửa
+                    LoaiSPDB.TenLoaiSP = loaiSP.TenLoaiSP;
+
+                    // Lưu thay đổi vào cơ sở dữ liệu
+                    database.SaveChanges();
+
+                    ViewBag.ThongBao = "Chỉnh sửa nhà cung cấp thành công";
+                    return RedirectToAction("LoaiSP");
+                }
+                else
+                {
+                    ViewBag.ThongBao = " ";
+                }
+            }
+
+            return View(loaiSP);
+
+        }
+        public ActionResult DeleteLoaiSP(int id)
+        {
+            var dsLoaiSP = database.LoaiSPs.FirstOrDefault(LoaiSP => LoaiSP.MaLoaiSP == id);
+
+            if (dsLoaiSP != null)
+            {
+                database.LoaiSPs.Remove(dsLoaiSP);
+                database.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
+            }
+
+            return RedirectToAction("LoaiSP"); // Chuyển hướng người dùng sau khi xóa (không cần trang xác nhận)
+        }
+
 
     }
 }
