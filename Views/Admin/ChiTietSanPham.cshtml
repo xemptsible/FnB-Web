@@ -1,0 +1,83 @@
+﻿@model WebFnB.Models.SP
+
+@{
+    ViewBag.Title = "ChiTietSanPham";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ChiTietSanPham</h2>
+
+<div>
+    <h4>SP</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaBan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaNhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaNhap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuongTon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiSP.TenLoaiSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiSP.TenLoaiSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NCungCap.TenNCC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NCungCap.TenNCC)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaSP }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
