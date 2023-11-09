@@ -5,6 +5,13 @@ using System.Web;
 
 namespace WebFnB.Models
 {
+    public class CartItem
+    {
+        // Khai báo một mục sản phẩm mua CartItem
+        public SP _product { get; set; }
+        public int _quantity { get; set; }
+    }
+
     public class MatHangMua
     {
         QLBANHANGEntities db = new QLBANHANGEntities();
@@ -14,10 +21,10 @@ namespace WebFnB.Models
         public decimal GiaBan { get; set; }
         public int SoLuong { get; set; }
 
-       /* public IEnumerable<CartItem> Items
+        public IEnumerable<CartItem> items
         {
             get { return items; }
-        }*/
+        }
 
         public decimal ThanhTien()
         {
@@ -33,16 +40,5 @@ namespace WebFnB.Models
             this.GiaBan = decimal.Parse(sp.GiaBan.ToString());
             this.SoLuong = 1;
         }
-        /*public void Update_quantity(int id, int _new_quan)
-        {
-            var item = items.Find(s => s._product.ProductID == id);
-            if (item != null)
-                item._quantity = _new_quan;
-        }
-        // Phương thức xóa sản phẩm trong giỏ hàng
-        public void Remove_CartItem(int id)
-        {
-            items.RemoveAll(s => s._product.ProductID == id);
-        }*/
     }
 }

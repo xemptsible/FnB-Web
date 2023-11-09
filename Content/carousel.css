@@ -1,0 +1,36 @@
+﻿.carousel-control-prev,
+.carousel-control-next {
+    width: 50px; /* Set width of carousel controls */
+    position: absolute; /* Position controls outside carousel */
+    top: 50%; /* Vertically align controls at center */
+    transform: translateY(-50%); /* Counteract vertical centering */
+    z-index: 1; /* Ensure controls appear above carousel content */
+}
+
+.carousel-control-prev {
+    width: 50px;
+    height: 60px; /* Set desired height */
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.carousel-control-next {
+    width: 50px;
+    height: 60px; /* Set desired height */
+    position: absolute;
+    top: 21%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.btn-danger input[type="image"] {
+    display: block;
+    width: 150px;
+    height: 50px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

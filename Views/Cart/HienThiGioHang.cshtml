@@ -23,10 +23,30 @@
             <tr>
                 <td>@sp.MaSP</td>
                 <td>@sp.TenSP</td>
-                <td><img src="~/Images/@sp.Anh"style="height:64px;width:64px" /></td>
-                <td>@sp.SoLuong</td>
+                <td><img src="~/Images/@sp.Anh" style="height:64px;width:64px" /></td>
+                @using (Html.BeginForm("CapNhatMatHang", "Cart", new { MaSP = sp.MaSP }))
+                {
+            <td>
+                <input type="number" min="1" value="@sp.SoLuong" name="SoLuong" />
+                <script>
+                const inputSoLuong = document.querySelector('input[name="SoLuong"]');
+                inputSoLuong.addEventListener('change', () => {sendUpdateRequest(maSP, soLuong);});
+                const sendUpdateRequest = (maSP, soLuong) => {const formData = { maSP, soLuong };
+                fetch(`/api/CapNhatMatHang/CapNhatSoLuong`, {method: 'POST',headers: {'Content-Type': 'application/json'},body: JSON.stringify(formData)}).then(response => response.json()).then(data => {}).catch(error => {console.error(error); });};
+                </script>
+                <button type="button" hidden>(@Html.ActionLink("Cập nhật", "CapNhatMatHang", "Cart", new { MaSP = sp.MaSP }, new { @class = "cap-nhat-button" }))</button>
+            </td>
+                }
                 <td>@sp.GiaBan</td>
                 <td>@sp.ThanhTien()</td>
+                <td>
+                    @Html.ActionLink("Chi tiết", "Details", "Product", new { id = sp.MaSP }, new { @class = "btn btn-success" })
+                </td>
+                <td>
+                    <a href="@Url.Action("XoaMatHang", "Cart", new { MaSP = sp.MaSP })">
+                        <img src="@Url.Content("~/Images/delete.png")" alt="Xóa hàng" width="50px" height="50px" />
+                    </a>
+                </td>
             </tr>
         }
         <tr style="font-weight:bold; text-align:right; color:red;">
@@ -40,4 +60,6 @@
         </tr>
     </tbody>
 </table>
+
+
 

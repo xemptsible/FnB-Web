@@ -68,6 +68,36 @@ namespace WebFnB.Controllers
             ViewBag.TongTien = TinhTongTien();
             return PartialView();
         }
+        public ActionResult XoaMatHang(int MaSP)
+        {
+            List<MatHangMua> gioHang = LayGioHang();
+
+            //Lấy sản phẩm trong giỏ hàng
+            var sanpham = gioHang.FirstOrDefault(s => s.MaSP == MaSP);
+            if (sanpham != null)
+            {
+                gioHang.RemoveAll(s => s.MaSP == MaSP);
+                return RedirectToAction("HienThiGioHang"); //Quay về trang giỏ hàng
+            }
+            if (gioHang.Count == 0) //Quay về trang chủ nếu giỏ hàng không có gì 
+                return RedirectToAction("Index", "BookStore");
+            return RedirectToAction("HienThiGioHang");
+        }
+
+        public ActionResult CapNhatMatHang(int MaSP, int SoLuong)
+        {
+            List<MatHangMua> gioHang = LayGioHang();
+            //Lấy sản phẩm trong giỏ hàng
+            var sanpham = gioHang.FirstOrDefault(s => s.MaSP == MaSP);
+
+            if (sanpham != null)
+            {
+                // Cập nhật số lượng tương ứng
+                //Lưu ý số lượng phải lớn hơn hoặc bằng 1
+                sanpham.SoLuong = SoLuong;
+            }
+            return RedirectToAction("HienThiGioHang"); //Quay về trang giỏ hàng
+        }
         public ActionResult DatHang()
         {
             if (Session["TaiKhoan"] == null)
