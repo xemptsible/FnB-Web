@@ -36,8 +36,8 @@ namespace WebFnB.Controllers
         {
             int pageSize = 5;
             int pageNum = (page ?? 1);
-            var dsSachTheoNhaCungCap = db.SPs.Where(sp => sp.MaNCC == id).ToList();
-            return View("Index", dsSachTheoNhaCungCap.ToPagedList(pageNum, pageSize));
+            var dsspTheoNhaCungCap = db.SPs.Where(sp => sp.MaNCC == id).ToList();
+            return View("Index", dsspTheoNhaCungCap.ToPagedList(pageNum, pageSize));
         }
         public ActionResult SPTheoLSP(int id, int? page)
         {
@@ -48,8 +48,8 @@ namespace WebFnB.Controllers
         }
         public ActionResult Details(int id)
         {
-            var sach = db.SPs.FirstOrDefault(s => s.MaSP == id);
-            return View(sach);
+            var sp = db.SPs.FirstOrDefault(s => s.MaSP == id);
+            return View(sp);
         }
     }
 }

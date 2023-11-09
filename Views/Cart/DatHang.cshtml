@@ -20,14 +20,14 @@
     <tbody>
         @foreach (var sp in Model)
         {
-            <tr>
-                <td>@sp.MaSP</td>
-                <td>@sp.TenSP</td>
-                <td><img src="~/Images/@sp.Anh" style="height:24px;width:24px" /></td>
-                <td>@sp.SoLuong</td>
-                <td>@String.Format("{0:0,0}", sp.GiaBan)</td>
-                <td>@String.Format("{0:0,0}", sp.ThanhTien())</td>
-            </tr>
+        <tr>
+            <td>@sp.MaSP</td>
+            <td>@sp.TenSP</td>
+            <td><img src="~/Images/@sp.Anh" style="height:24px;width:24px" /></td>
+            <td>@String.Format("{0:0,0}", sp.GiaBan)</td>
+            <td>@String.Format("{0:0,0}", sp.ThanhTien())</td>
+            <td>@sp.ThanhTien()</td>
+        </tr>
         }
         <tr style="font-weight:bold; text-align:right; color:red;">
             <td colspan="4">Tổng số lượng: @ViewBag.TongSL</td>

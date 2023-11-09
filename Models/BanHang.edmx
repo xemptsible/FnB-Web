@@ -96,7 +96,7 @@
           <Property Name="MaTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenPT" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <Association Name="FK__ChiTietHoa__MaHD__35BCFE0A">
+        <Association Name="FK__ChiTietHoa__MaHD__48CFD27E">
           <End Role="HD" Type="Self.HD" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -110,7 +110,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ChiTietHoa__MaSP__36B12243">
+        <Association Name="FK__ChiTietHoa__MaSP__49C3F6B7">
           <End Role="SP" Type="Self.SP" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -124,7 +124,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DanhGia__MaKH__398D8EEE">
+        <Association Name="FK__DanhGia__MaKH__4CA06362">
           <End Role="KH" Type="Self.KH" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -138,7 +138,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DanhGia__MaSP__3A81B327">
+        <Association Name="FK__DanhGia__MaSP__4D94879B">
           <End Role="SP" Type="Self.SP" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -152,7 +152,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HD__MaKH__2E1BDC42">
+        <Association Name="FK__HD__MaKH__412EB0B6">
           <End Role="KH" Type="Self.KH" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -166,7 +166,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HD__MaTT__2F10007B">
+        <Association Name="FK__HD__MaTT__4222D4EF">
           <End Role="ThanhToan" Type="Self.ThanhToan" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -180,7 +180,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SP__MaLoaiSP__31EC6D26">
+        <Association Name="FK__SP__MaLoaiSP__44FF419A">
           <End Role="LoaiSP" Type="Self.LoaiSP" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -194,7 +194,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SP__MaNCC__32E0915F">
+        <Association Name="FK__SP__MaNCC__45F365D3">
           <End Role="NCungCap" Type="Self.NCungCap" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -218,35 +218,35 @@
           <EntitySet Name="NCungCap" EntityType="Self.NCungCap" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SP" EntityType="Self.SP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ThanhToan" EntityType="Self.ThanhToan" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__ChiTietHoa__MaHD__35BCFE0A" Association="Self.FK__ChiTietHoa__MaHD__35BCFE0A">
+          <AssociationSet Name="FK__ChiTietHoa__MaHD__48CFD27E" Association="Self.FK__ChiTietHoa__MaHD__48CFD27E">
             <End Role="HD" EntitySet="HD" />
             <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDon" />
           </AssociationSet>
-          <AssociationSet Name="FK__ChiTietHoa__MaSP__36B12243" Association="Self.FK__ChiTietHoa__MaSP__36B12243">
+          <AssociationSet Name="FK__ChiTietHoa__MaSP__49C3F6B7" Association="Self.FK__ChiTietHoa__MaSP__49C3F6B7">
             <End Role="SP" EntitySet="SP" />
             <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDon" />
           </AssociationSet>
-          <AssociationSet Name="FK__DanhGia__MaKH__398D8EEE" Association="Self.FK__DanhGia__MaKH__398D8EEE">
+          <AssociationSet Name="FK__DanhGia__MaKH__4CA06362" Association="Self.FK__DanhGia__MaKH__4CA06362">
             <End Role="KH" EntitySet="KH" />
             <End Role="DanhGia" EntitySet="DanhGia" />
           </AssociationSet>
-          <AssociationSet Name="FK__DanhGia__MaSP__3A81B327" Association="Self.FK__DanhGia__MaSP__3A81B327">
+          <AssociationSet Name="FK__DanhGia__MaSP__4D94879B" Association="Self.FK__DanhGia__MaSP__4D94879B">
             <End Role="SP" EntitySet="SP" />
             <End Role="DanhGia" EntitySet="DanhGia" />
           </AssociationSet>
-          <AssociationSet Name="FK__HD__MaKH__2E1BDC42" Association="Self.FK__HD__MaKH__2E1BDC42">
+          <AssociationSet Name="FK__HD__MaKH__412EB0B6" Association="Self.FK__HD__MaKH__412EB0B6">
             <End Role="KH" EntitySet="KH" />
             <End Role="HD" EntitySet="HD" />
           </AssociationSet>
-          <AssociationSet Name="FK__HD__MaTT__2F10007B" Association="Self.FK__HD__MaTT__2F10007B">
+          <AssociationSet Name="FK__HD__MaTT__4222D4EF" Association="Self.FK__HD__MaTT__4222D4EF">
             <End Role="ThanhToan" EntitySet="ThanhToan" />
             <End Role="HD" EntitySet="HD" />
           </AssociationSet>
-          <AssociationSet Name="FK__SP__MaLoaiSP__31EC6D26" Association="Self.FK__SP__MaLoaiSP__31EC6D26">
+          <AssociationSet Name="FK__SP__MaLoaiSP__44FF419A" Association="Self.FK__SP__MaLoaiSP__44FF419A">
             <End Role="LoaiSP" EntitySet="LoaiSP" />
             <End Role="SP" EntitySet="SP" />
           </AssociationSet>
-          <AssociationSet Name="FK__SP__MaNCC__32E0915F" Association="Self.FK__SP__MaNCC__32E0915F">
+          <AssociationSet Name="FK__SP__MaNCC__45F365D3" Association="Self.FK__SP__MaNCC__45F365D3">
             <End Role="NCungCap" EntitySet="NCungCap" />
             <End Role="SP" EntitySet="SP" />
           </AssociationSet>
