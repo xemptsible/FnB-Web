@@ -18,6 +18,7 @@ namespace WebFnB.Models
         public KH()
         {
             this.DanhGias = new HashSet<DanhGia>();
+            this.DONDATHANGs = new HashSet<DONDATHANG>();
             this.HDs = new HashSet<HD>();
         }
     
@@ -31,6 +32,8 @@ namespace WebFnB.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DanhGia> DanhGias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DONDATHANG> DONDATHANGs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HD> HDs { get; set; }
     }

@@ -18,8 +18,10 @@ namespace WebFnB.Models
         public int MaSP { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public Nullable<decimal> DonGia { get; set; }
+        public Nullable<decimal> Thanhtien { get; set; }
     
         public virtual HD HD { get; set; }
         public virtual SP SP { get; set; }
+        public virtual DONDATHANG DONDATHANG { get; set; }
     }
 }

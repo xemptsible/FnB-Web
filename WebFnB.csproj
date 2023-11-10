@@ -166,6 +166,9 @@
     <Compile Include="Models\DanhGia.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DONDATHANG.cs">
+      <DependentUpon>BanHang.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\HD.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
@@ -443,6 +446,7 @@
     <Content Include="Views\Admin\DeleteNCC.cshtml" />
     <Content Include="Views\Admin\ThemNCC.cshtml" />
     <Content Include="Views\Admin\NCC.cshtml" />
+    <Content Include="Views\Cart\HoanThanhDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
