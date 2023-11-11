@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WebFnB.Models.KH>
+
+@{
+    ViewBag.Title = "DanhSachKhachHang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+        $(".password-display").hover(function () {
+            var password = $(this).data("password");
+            $(this).text(password);
+        }, function () {
+            $(this).text("****");
+        });
+    });
+</script>
+
+<h2>Danh Sách Khách Hàng</h2>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.TenKH)</th>
+            <th>@Html.DisplayNameFor(model => model.TaiKhoan)</th>
+            <th>@Html.DisplayNameFor(model => model.MatKhau)</th>
+            <th>@Html.DisplayNameFor(model => model.DiaChi)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.SDT)</th>
+            <th>Thao Tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.TenKH)</td>
+                <td>@Html.DisplayFor(modelItem => item.TaiKhoan)</td>
+                <td>
+                    <span class="password-display" data-password="@item.MatKhau">*******</span>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.DiaChi)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.SDT)</td>
+                <td>
+                    @Html.ActionLink("Chỉnh sửa", "EditKhachHang", new { id = item.MaKH }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Xóa", "DeleteKhachHang", new { id = item.MaKH }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
