@@ -1,0 +1,104 @@
+﻿@using WebFnB.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<SP>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
+@foreach (var item in Model)
+{
+    <div class="product-details">
+        <div class="product-image">
+            <img src="~/Images/@item.Anh" alt="Product Image" />
+        </div>
+        <div class="product-info">
+            <div class="product-field">
+                <span class="field-label">Tên sản phẩm:</span>
+                <span class="field-value">@Html.DisplayFor(modelItem => item.TenSP)</span>
+            </div>
+            <div class="product-field">
+                <span class="field-label">Mô tả:</span>
+                <span class="field-value">@Html.DisplayFor(modelItem => item.MoTa)</span>
+            </div>
+            <div class="product-field">
+                <span class="field-label">Giá bán:</span>
+                <span class="field-value">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+            </div>
+            <div class="product-field">
+                <span class="field-label">Giá nhập:</span>
+                <span class="field-value">@Html.DisplayFor(modelItem => item.GiaNhap)</span>
+            </div>
+            <div class="product-field">
+                <span class="field-label">Mã loại sản phẩm:</span>
+                <span class="field-value">@Html.DisplayFor(modelItem => item.LoaiSP.MaLoaiSP)</span>
+            </div>
+            <div class="product-field">
+                <span class="field-label">Mã nhà cung cấp:</span>
+                <span class="field-value">@Html.DisplayFor(modelItem => item.NCungCap.MaNCC)</span>
+            </div>
+            <div class="product-field">
+                <span class="field-label">Số lượng tồn:</span>
+                <span class="field-value">@Html.DisplayFor(modelItem => item.SoLuongTon)</span>
+            </div>
+        </div>
+    </div>
+}
+<br />
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("SanPham", new { page }))
+</div>
+<div class="containterdropdown">
+    <div class="dropdown">
+        Results Per Page
+    </div>
+    @Html.DropDownList("pageSize", new SelectList(new List<int> { 5, 10, 20 }, Model.PageSize), new { onchange = "this.form.submit();" })
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+
+css
+Copy
+<p>
+    @Html.ActionLink("Edit", "Edit")
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<style>
+    .product-details {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .product-image {
+        flex: 1;
+    }
+
+        .product-image img {
+            height: 200px;
+            width: 200px;
+        }
+
+    .product-info {
+        flex: 3;
+        padding-left: 20px;
+    }
+
+    .product-field {
+        margin-bottom: 10px;
+    }
+
+    .field-label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .field-value {
+        font-weight: normal;
+    }
+</style>
