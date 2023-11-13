@@ -63,9 +63,10 @@
                 @Html.TextBox("SDT", null, new
                 {
                     @class = "form-control",
-                    @id =
-                "dienthoai",
-                    required = "required"
+                    @id = "dienthoai",
+                    required = "required",
+                    @minlength = "9",
+                    @maxlength = "13"
                 })
             </div>
             <button type="submit" class="btn btn-primary">ĐĂNG KÝ</button>
