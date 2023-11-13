@@ -41,7 +41,7 @@
           <Key>
             <PropertyRef Name="MaHD" />
           </Key>
-          <Property Name="MaHD" Type="int" Nullable="false" />
+          <Property Name="MaHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaKH" Type="int" />
           <Property Name="NgayDH" Type="datetime" />
           <Property Name="Trigia" Type="decimal" Precision="19" Scale="4" />
@@ -49,7 +49,7 @@
           <Property Name="Ngaygiaohang" Type="datetime" />
           <Property Name="Tennguoinhan" Type="nvarchar" MaxLength="50" />
           <Property Name="Diachinhan" Type="nvarchar" MaxLength="50" />
-          <Property Name="Dienthoainhan" Type="varchar" MaxLength="15" />
+          <Property Name="Dienthoainhan" Type="nvarchar" MaxLength="100" />
           <Property Name="HTThanhtoan" Type="varchar" MaxLength="50" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
         </EntityType>
@@ -113,34 +113,6 @@
           <Property Name="MaTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenPT" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <Association Name="FK__ChiTietHoa__MaHD__48CFD27E">
-          <End Role="HD" Type="Self.HD" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="ChiTietHoaDon" Type="Self.ChiTietHoaDon" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HD">
-              <PropertyRef Name="MaHD" />
-            </Principal>
-            <Dependent Role="ChiTietHoaDon">
-              <PropertyRef Name="MaHD" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ChiTietHoa__MaSP__49C3F6B7">
-          <End Role="SP" Type="Self.SP" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="ChiTietHoaDon" Type="Self.ChiTietHoaDon" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SP">
-              <PropertyRef Name="MaSP" />
-            </Principal>
-            <Dependent Role="ChiTietHoaDon">
-              <PropertyRef Name="MaSP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__DanhGia__MaKH__4CA06362">
           <End Role="KH" Type="Self.KH" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -166,34 +138,6 @@
             </Principal>
             <Dependent Role="DanhGia">
               <PropertyRef Name="MaSP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__HD__MaKH__412EB0B6">
-          <End Role="KH" Type="Self.KH" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="HD" Type="Self.HD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KH">
-              <PropertyRef Name="MaKH" />
-            </Principal>
-            <Dependent Role="HD">
-              <PropertyRef Name="MaKH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__HD__MaTT__4222D4EF">
-          <End Role="ThanhToan" Type="Self.ThanhToan" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="HD" Type="Self.HD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ThanhToan">
-              <PropertyRef Name="MaTT" />
-            </Principal>
-            <Dependent Role="HD">
-              <PropertyRef Name="MaTT" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -236,14 +180,6 @@
           <EntitySet Name="NCungCap" EntityType="Self.NCungCap" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SP" EntityType="Self.SP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ThanhToan" EntityType="Self.ThanhToan" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__ChiTietHoa__MaHD__48CFD27E" Association="Self.FK__ChiTietHoa__MaHD__48CFD27E">
-            <End Role="HD" EntitySet="HD" />
-            <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDon" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ChiTietHoa__MaSP__49C3F6B7" Association="Self.FK__ChiTietHoa__MaSP__49C3F6B7">
-            <End Role="SP" EntitySet="SP" />
-            <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDon" />
-          </AssociationSet>
           <AssociationSet Name="FK__DanhGia__MaKH__4CA06362" Association="Self.FK__DanhGia__MaKH__4CA06362">
             <End Role="KH" EntitySet="KH" />
             <End Role="DanhGia" EntitySet="DanhGia" />
@@ -251,14 +187,6 @@
           <AssociationSet Name="FK__DanhGia__MaSP__4D94879B" Association="Self.FK__DanhGia__MaSP__4D94879B">
             <End Role="SP" EntitySet="SP" />
             <End Role="DanhGia" EntitySet="DanhGia" />
-          </AssociationSet>
-          <AssociationSet Name="FK__HD__MaKH__412EB0B6" Association="Self.FK__HD__MaKH__412EB0B6">
-            <End Role="KH" EntitySet="KH" />
-            <End Role="HD" EntitySet="HD" />
-          </AssociationSet>
-          <AssociationSet Name="FK__HD__MaTT__4222D4EF" Association="Self.FK__HD__MaTT__4222D4EF">
-            <End Role="ThanhToan" EntitySet="ThanhToan" />
-            <End Role="HD" EntitySet="HD" />
           </AssociationSet>
           <AssociationSet Name="FK__SP__MaLoaiSP__44FF419A" Association="Self.FK__SP__MaLoaiSP__44FF419A">
             <End Role="LoaiSP" EntitySet="LoaiSP" />
@@ -365,7 +293,7 @@
           <Property Name="Ngaygiaohang" Type="DateTime" Precision="3" />
           <Property Name="Tennguoinhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Diachinhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Dienthoainhan" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Dienthoainhan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="HTThanhtoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
