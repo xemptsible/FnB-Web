@@ -14,12 +14,6 @@ namespace WebFnB.Models
     
     public partial class DONDATHANG
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DONDATHANG()
-        {
-            this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
-        }
-    
         public int MaHD { get; set; }
         public Nullable<int> MaKH { get; set; }
         public Nullable<System.DateTime> NgayDH { get; set; }
@@ -28,12 +22,8 @@ namespace WebFnB.Models
         public Nullable<System.DateTime> Ngaygiaohang { get; set; }
         public string Tennguoinhan { get; set; }
         public string Diachinhan { get; set; }
-        public Nullable<bool> HTThanhtoan { get; set; }
-        public Nullable<bool> HTGiaohang { get; set; }
+        public string Dienthoainhan { get; set; }
+        public string HTThanhtoan { get; set; }
         public string Email { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-        public virtual KH KH { get; set; }
     }
 }

@@ -22,6 +22,5 @@ namespace WebFnB.Models
     
         public virtual HD HD { get; set; }
         public virtual SP SP { get; set; }
-        public virtual DONDATHANG DONDATHANG { get; set; }
     }
 }

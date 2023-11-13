@@ -116,7 +116,7 @@ namespace WebFnB.Controllers
         {
             KH khach = Session["TaiKhoan"] as KH; //Khách
             List<MatHangMua> gioHang = LayGioHang(); //Giỏ hàng
-
+            string selectedPaymentMethod = form["PaymentMethod"];
 
             DONDATHANG DonHang = new DONDATHANG(); //Tạo mới đơn đặt hàng
             DonHang.MaKH = khach.MaKH;
@@ -126,8 +126,8 @@ namespace WebFnB.Controllers
             DonHang.Tennguoinhan = khach.TenKH;
             DonHang.Diachinhan = khach.DiaChi;
             DonHang.Email = khach.Email;
-            DonHang.HTThanhtoan = bool.Parse(form["PaymentMethod"]);
-            DonHang.HTGiaohang = false;
+            DonHang.HTThanhtoan = selectedPaymentMethod;
+            DonHang.Dienthoainhan = khach.SDT;
 
             database.DONDATHANGs.Add(DonHang);
             database.SaveChanges();

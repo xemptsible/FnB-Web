@@ -409,7 +409,7 @@ namespace MvcBookStore.Controllers
                     HOADON.Dagiao = hoaDon.Dagiao;
                     HOADON.Diachinhan = hoaDon.Diachinhan;
                     HOADON.Email = hoaDon.Email;
-                    HOADON.HTGiaohang = hoaDon.HTGiaohang;
+                    HOADON.Dienthoainhan = hoaDon.Dienthoainhan;
                     HOADON.HTThanhtoan = hoaDon.HTThanhtoan;
                     HOADON.Trigia = hoaDon.Trigia;
                     HOADON.NgayDH = hoaDon.NgayDH;
