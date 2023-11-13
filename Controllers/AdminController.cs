@@ -379,21 +379,17 @@ namespace MvcBookStore.Controllers
             int pageNum = (page ?? 1);
             return View(dsHoaDon.OrderBy(hd => hd.MaHD).ToPagedList(pageNum, pageSize));
         }
-        public ActionResult EditHoaDon(int id)
-        {
-            // Lấy thông tin sản phẩm cần chỉnh sửa từ cơ sở dữ liệu
-            var dsLoaiSP = database.LoaiSPs.FirstOrDefault(LoaiSP => LoaiSP.MaLoaiSP == id);
 
-            if (dsLoaiSP == null)
+        public ActionResult ChiTietHoaDon(int id)
+        {
+            var hoaDon = database.DONDATHANGs.FirstOrDefault(hd => hd.MaHD == id);
+
+            if (hoaDon == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-
-            // Lấy danh sách các loại sản phẩm và nhà cung cấp
-            ViewBag.MaLoaiSP = new SelectList(database.LoaiSPs.ToList(), "MaLoaiSP", "TenLoaiSP");
-
-            return View(dsLoaiSP);
+            return View(hoaDon);
         }
 
         [HttpPost]
@@ -402,7 +398,7 @@ namespace MvcBookStore.Controllers
             if (ModelState.IsValid)
             {
                 // Lấy sản phẩm từ cơ sở dữ liệu
-                var HOADON = database.DONDATHANGs.FirstOrDefault(LoaiSP => LoaiSP.MaHD == hoaDon.MaHD);
+                var HOADON = database.DONDATHANGs.FirstOrDefault(DONDATHANG => DONDATHANG.MaHD == hoaDon.MaHD);
 
                 if (HOADON != null)
                 {
@@ -423,7 +419,7 @@ namespace MvcBookStore.Controllers
                     database.SaveChanges();
 
                     ViewBag.ThongBao = "Chỉnh sửa nhà cung cấp thành công";
-                    return RedirectToAction("LoaiSP");
+                    return RedirectToAction("HoaDon");
                 }
                 else
                 {
@@ -431,20 +427,20 @@ namespace MvcBookStore.Controllers
                 }
             }
 
-            return View(loaiSP);
+            return View(hoaDon);
 
         }
-        public ActionResult DeleteLoaiSP(int id)
+        public ActionResult DeleteHoaDon(int id)
         {
-            var dsLoaiSP = database.LoaiSPs.FirstOrDefault(LoaiSP => LoaiSP.MaLoaiSP == id);
+            var dsHoaDon = database.DONDATHANGs.FirstOrDefault(DONDATHANG => DONDATHANG.MaHD == id);
 
-            if (dsLoaiSP != null)
+            if (dsHoaDon != null)
             {
-                database.LoaiSPs.Remove(dsLoaiSP);
+                database.DONDATHANGs.Remove(dsHoaDon);
                 database.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
             }
 
-            return RedirectToAction("LoaiSP"); // Chuyển hướng người dùng sau khi xóa (không cần trang xác nhận)
+            return RedirectToAction("HoaDon"); // Chuyển hướng người dùng sau khi xóa (không cần trang xác nhận)
         }
 
     }

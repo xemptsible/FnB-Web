@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "DatHang";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    KH khach = Session["TaiKhoan"] as KH;
 }
 
 <h2 style="text-align:center">THÔNG TIN GIỎ HÀNG</h2>
@@ -35,27 +36,33 @@
         </tr>
     </tbody>
 </table>
-@*<h2 style="text-align:center">THÔNG TIN KHÁCH HÀNG</h2>
+<h2 style="text-align:center">THÔNG TIN KHÁCH HÀNG</h2>
 <table class="table table-bordered">
     <tr>
         <td>Họ tên: </td>
-        <td>@khach.HoTenKH</td>
+        <td>@khach.TenKH</td>
     </tr>
     <tr>
         <td>Địa chỉ: </td>
-        <td>@khach.DiachiKH</td>
+        <td>@khach.DiaChi</td>
     </tr>
     <tr>
         <td>Điện thoại: </td>
-        <td>@khach.DienthoaiKH</td>
+        <td>@khach.SDT</td>
     </tr>
     <tr>
         <td>Ngày đặt: </td>
         <td>@DateTime.Now.ToShortDateString()</td>
     </tr>
     <tr>
+        <td>Phương thức thanh toán: </td>
+        <td>
+            @Html.DropDownList("PaymentMethod", (IEnumerable<SelectListItem>)ViewBag.PaymentMethods, "Chọn phương thức thanh toán", new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
         <td colspan="2" style="text-align: center;">
             @Html.ActionLink("ĐỒNG Ý ĐẶT HÀNG", "DongYDatHang", null, new { @class = "btn btn-primary" })
         </td>
     </tr>
-</table>*@
+</table>

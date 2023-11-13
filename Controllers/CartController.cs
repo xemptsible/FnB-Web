@@ -105,16 +105,18 @@ namespace WebFnB.Controllers
             List<MatHangMua> gioHang = LayGioHang();
             if (gioHang == null || gioHang.Count == 0)
                 return RedirectToAction("Index", "Product");
-
+            var paymentMethods = database.ThanhToans.Select(p => new SelectListItem {Value = p.MaTT.ToString(),Text = p.TenPT}).ToList();
+            ViewBag.PaymentMethods = paymentMethods;
             ViewBag.TongSL = TinhTongSL();
             ViewBag.TongTien = TinhTongTien();
             return View(gioHang);
         }
         QLBANHANGEntities database = new QLBANHANGEntities();
-        public ActionResult DongYDatHang()
+        public ActionResult DongYDatHang(FormCollection form)
         {
             KH khach = Session["TaiKhoan"] as KH; //Khách
             List<MatHangMua> gioHang = LayGioHang(); //Giỏ hàng
+
 
             DONDATHANG DonHang = new DONDATHANG(); //Tạo mới đơn đặt hàng
             DonHang.MaKH = khach.MaKH;
@@ -124,7 +126,7 @@ namespace WebFnB.Controllers
             DonHang.Tennguoinhan = khach.TenKH;
             DonHang.Diachinhan = khach.DiaChi;
             DonHang.Email = khach.Email;
-            DonHang.HTThanhtoan = false;
+            DonHang.HTThanhtoan = bool.Parse(form["PaymentMethod"]);
             DonHang.HTGiaohang = false;
 
             database.DONDATHANGs.Add(DonHang);
