@@ -54,12 +54,12 @@
         <td>Ngày đặt: </td>
         <td>@DateTime.Now.ToShortDateString()</td>
     </tr>
-    <tr>
+    @*<tr>
         <td>Phương thức thanh toán: </td>
         <td>
             @Html.DropDownList("PaymentMethod", (IEnumerable<SelectListItem>)ViewBag.PaymentMethods, "Chọn phương thức thanh toán", new { @class = "form-control" })
         </td>
-    </tr>
+    </tr>*@
     <tr>
         <td colspan="2" style="text-align: center;">
             @Html.ActionLink("ĐỒNG Ý ĐẶT HÀNG", "DongYDatHang", null, new { @class = "btn btn-primary" })
