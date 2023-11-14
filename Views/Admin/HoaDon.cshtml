@@ -5,38 +5,38 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>HoaDon</h2>
+<h2>DANH SÁCH HÓA ĐƠN</h2>
 
 <p>
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NgayDH)
+            Ngày đặt hàng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Trigia)
+            Gía tiền
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Dagiao)
+            Đã giao hàng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ngaygiaohang)
+            Ngày giao hàng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Tennguoinhan)
+            Tên người nhận hàng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Diachinhan)
+           Địa chỉ nhận
+        </th>
+        @*<th>
+            Thanh toán
+        </th>*@
+        <th>
+           Điện thoại nhận
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HTThanhtoan)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dienthoainhan)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
+            Email
         </th>
         <th></th>
     </tr>
@@ -61,9 +61,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Diachinhan)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.HTThanhtoan)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Dienthoainhan)
         </td>
@@ -71,9 +71,7 @@
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaHD }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaHD }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaHD })
+            @Html.ActionLink("Xóa", "DeleteHoaDon", new { id=item.MaHD })
         </td>
     </tr>
 }
