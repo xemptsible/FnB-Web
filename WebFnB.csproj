@@ -157,11 +157,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BanHang.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BanHang.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\ChiTietHoaDon.cs">
       <DependentUpon>BanHang.tt</DependentUpon>
     </Compile>
@@ -451,7 +446,6 @@
     <Content Include="Views\KhachHang\DanhSachKhachHang.cshtml" />
     <Content Include="Views\KhachHang\EditKhachHang.cshtml" />
     <Content Include="Views\KhachHang\DeleteKhachHang.cshtml" />
-    <Content Include="Views\DonHang\DanhSachDonHang.cshtml" />
     <Content Include="Views\Cart\HoanThanhDonHang.cshtml" />
     <Content Include="Views\Admin\HoaDon.cshtml" />
     <Content Include="Views\Admin\EditHoaDon.cshtml" />
