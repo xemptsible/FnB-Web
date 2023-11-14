@@ -12,15 +12,18 @@ namespace WebFnB.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ChiTietHoaDon
+    public partial class DONDATHANG
     {
         public int MaHD { get; set; }
-        public int MaSP { get; set; }
-        public Nullable<int> SoLuong { get; set; }
-        public Nullable<decimal> DonGia { get; set; }
-        public Nullable<decimal> Thanhtien { get; set; }
-    
-        public virtual HD HD { get; set; }
-        public virtual SP SP { get; set; }
+        public Nullable<int> MaKH { get; set; }
+        public Nullable<System.DateTime> NgayDH { get; set; }
+        public Nullable<decimal> Trigia { get; set; }
+        public Nullable<bool> Dagiao { get; set; }
+        public Nullable<System.DateTime> Ngaygiaohang { get; set; }
+        public string Tennguoinhan { get; set; }
+        public string Diachinhan { get; set; }
+        public string Dienthoainhan { get; set; }
+        public string HTThanhtoan { get; set; }
+        public string Email { get; set; }
     }
 }

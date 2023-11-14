@@ -24,6 +24,7 @@
           <Property Name="MaSP" Type="int" Nullable="false" />
           <Property Name="SoLuong" Type="int" />
           <Property Name="DonGia" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Thanhtien" Type="decimal" Precision="29" Scale="0" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="DanhGia">
           <Key>
@@ -35,6 +36,22 @@
           <Property Name="NgayDG" Type="datetime" />
           <Property Name="MaKH" Type="int" />
           <Property Name="MaSP" Type="int" />
+        </EntityType>
+        <EntityType Name="DONDATHANG">
+          <Key>
+            <PropertyRef Name="MaHD" />
+          </Key>
+          <Property Name="MaHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaKH" Type="int" />
+          <Property Name="NgayDH" Type="datetime" />
+          <Property Name="Trigia" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Dagiao" Type="bit" />
+          <Property Name="Ngaygiaohang" Type="datetime" />
+          <Property Name="Tennguoinhan" Type="nvarchar" MaxLength="50" />
+          <Property Name="Diachinhan" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dienthoainhan" Type="nvarchar" MaxLength="100" />
+          <Property Name="HTThanhtoan" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="HD">
           <Key>
@@ -96,34 +113,6 @@
           <Property Name="MaTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenPT" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <Association Name="FK__ChiTietHoa__MaHD__48CFD27E">
-          <End Role="HD" Type="Self.HD" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="ChiTietHoaDon" Type="Self.ChiTietHoaDon" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HD">
-              <PropertyRef Name="MaHD" />
-            </Principal>
-            <Dependent Role="ChiTietHoaDon">
-              <PropertyRef Name="MaHD" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ChiTietHoa__MaSP__49C3F6B7">
-          <End Role="SP" Type="Self.SP" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="ChiTietHoaDon" Type="Self.ChiTietHoaDon" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SP">
-              <PropertyRef Name="MaSP" />
-            </Principal>
-            <Dependent Role="ChiTietHoaDon">
-              <PropertyRef Name="MaSP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__DanhGia__MaKH__4CA06362">
           <End Role="KH" Type="Self.KH" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -149,34 +138,6 @@
             </Principal>
             <Dependent Role="DanhGia">
               <PropertyRef Name="MaSP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__HD__MaKH__412EB0B6">
-          <End Role="KH" Type="Self.KH" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="HD" Type="Self.HD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KH">
-              <PropertyRef Name="MaKH" />
-            </Principal>
-            <Dependent Role="HD">
-              <PropertyRef Name="MaKH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__HD__MaTT__4222D4EF">
-          <End Role="ThanhToan" Type="Self.ThanhToan" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="HD" Type="Self.HD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ThanhToan">
-              <PropertyRef Name="MaTT" />
-            </Principal>
-            <Dependent Role="HD">
-              <PropertyRef Name="MaTT" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -212,20 +173,13 @@
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChiTietHoaDon" EntityType="Self.ChiTietHoaDon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DanhGia" EntityType="Self.DanhGia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DONDATHANG" EntityType="Self.DONDATHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HD" EntityType="Self.HD" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KH" EntityType="Self.KH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoaiSP" EntityType="Self.LoaiSP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NCungCap" EntityType="Self.NCungCap" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SP" EntityType="Self.SP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ThanhToan" EntityType="Self.ThanhToan" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__ChiTietHoa__MaHD__48CFD27E" Association="Self.FK__ChiTietHoa__MaHD__48CFD27E">
-            <End Role="HD" EntitySet="HD" />
-            <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDon" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ChiTietHoa__MaSP__49C3F6B7" Association="Self.FK__ChiTietHoa__MaSP__49C3F6B7">
-            <End Role="SP" EntitySet="SP" />
-            <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDon" />
-          </AssociationSet>
           <AssociationSet Name="FK__DanhGia__MaKH__4CA06362" Association="Self.FK__DanhGia__MaKH__4CA06362">
             <End Role="KH" EntitySet="KH" />
             <End Role="DanhGia" EntitySet="DanhGia" />
@@ -233,14 +187,6 @@
           <AssociationSet Name="FK__DanhGia__MaSP__4D94879B" Association="Self.FK__DanhGia__MaSP__4D94879B">
             <End Role="SP" EntitySet="SP" />
             <End Role="DanhGia" EntitySet="DanhGia" />
-          </AssociationSet>
-          <AssociationSet Name="FK__HD__MaKH__412EB0B6" Association="Self.FK__HD__MaKH__412EB0B6">
-            <End Role="KH" EntitySet="KH" />
-            <End Role="HD" EntitySet="HD" />
-          </AssociationSet>
-          <AssociationSet Name="FK__HD__MaTT__4222D4EF" Association="Self.FK__HD__MaTT__4222D4EF">
-            <End Role="ThanhToan" EntitySet="ThanhToan" />
-            <End Role="HD" EntitySet="HD" />
           </AssociationSet>
           <AssociationSet Name="FK__SP__MaLoaiSP__44FF419A" Association="Self.FK__SP__MaLoaiSP__44FF419A">
             <End Role="LoaiSP" EntitySet="LoaiSP" />
@@ -259,41 +205,42 @@
           <EntitySet Name="Admins" EntityType="QLBANHANGModel.Admin" />
           <EntitySet Name="ChiTietHoaDons" EntityType="QLBANHANGModel.ChiTietHoaDon" />
           <EntitySet Name="DanhGias" EntityType="QLBANHANGModel.DanhGia" />
+          <EntitySet Name="DONDATHANGs" EntityType="QLBANHANGModel.DONDATHANG" />
           <EntitySet Name="HDs" EntityType="QLBANHANGModel.HD" />
           <EntitySet Name="KHs" EntityType="QLBANHANGModel.KH" />
           <EntitySet Name="LoaiSPs" EntityType="QLBANHANGModel.LoaiSP" />
           <EntitySet Name="NCungCaps" EntityType="QLBANHANGModel.NCungCap" />
           <EntitySet Name="SPs" EntityType="QLBANHANGModel.SP" />
           <EntitySet Name="ThanhToans" EntityType="QLBANHANGModel.ThanhToan" />
-          <AssociationSet Name="FK__ChiTietHoa__MaHD__35BCFE0A" Association="QLBANHANGModel.FK__ChiTietHoa__MaHD__35BCFE0A">
+          <AssociationSet Name="FK__ChiTietHoa__MaHD__48CFD27E" Association="QLBANHANGModel.FK__ChiTietHoa__MaHD__48CFD27E">
             <End Role="HD" EntitySet="HDs" />
             <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDons" />
           </AssociationSet>
-          <AssociationSet Name="FK__ChiTietHoa__MaSP__36B12243" Association="QLBANHANGModel.FK__ChiTietHoa__MaSP__36B12243">
+          <AssociationSet Name="FK__ChiTietHoa__MaSP__49C3F6B7" Association="QLBANHANGModel.FK__ChiTietHoa__MaSP__49C3F6B7">
             <End Role="SP" EntitySet="SPs" />
             <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDons" />
           </AssociationSet>
-          <AssociationSet Name="FK__DanhGia__MaKH__398D8EEE" Association="QLBANHANGModel.FK__DanhGia__MaKH__398D8EEE">
+          <AssociationSet Name="FK__DanhGia__MaKH__4CA06362" Association="QLBANHANGModel.FK__DanhGia__MaKH__4CA06362">
             <End Role="KH" EntitySet="KHs" />
             <End Role="DanhGia" EntitySet="DanhGias" />
           </AssociationSet>
-          <AssociationSet Name="FK__DanhGia__MaSP__3A81B327" Association="QLBANHANGModel.FK__DanhGia__MaSP__3A81B327">
+          <AssociationSet Name="FK__DanhGia__MaSP__4D94879B" Association="QLBANHANGModel.FK__DanhGia__MaSP__4D94879B">
             <End Role="SP" EntitySet="SPs" />
             <End Role="DanhGia" EntitySet="DanhGias" />
           </AssociationSet>
-          <AssociationSet Name="FK__HD__MaKH__2E1BDC42" Association="QLBANHANGModel.FK__HD__MaKH__2E1BDC42">
+          <AssociationSet Name="FK__HD__MaKH__412EB0B6" Association="QLBANHANGModel.FK__HD__MaKH__412EB0B6">
             <End Role="KH" EntitySet="KHs" />
             <End Role="HD" EntitySet="HDs" />
           </AssociationSet>
-          <AssociationSet Name="FK__HD__MaTT__2F10007B" Association="QLBANHANGModel.FK__HD__MaTT__2F10007B">
+          <AssociationSet Name="FK__HD__MaTT__4222D4EF" Association="QLBANHANGModel.FK__HD__MaTT__4222D4EF">
             <End Role="ThanhToan" EntitySet="ThanhToans" />
             <End Role="HD" EntitySet="HDs" />
           </AssociationSet>
-          <AssociationSet Name="FK__SP__MaLoaiSP__31EC6D26" Association="QLBANHANGModel.FK__SP__MaLoaiSP__31EC6D26">
+          <AssociationSet Name="FK__SP__MaLoaiSP__44FF419A" Association="QLBANHANGModel.FK__SP__MaLoaiSP__44FF419A">
             <End Role="LoaiSP" EntitySet="LoaiSPs" />
             <End Role="SP" EntitySet="SPs" />
           </AssociationSet>
-          <AssociationSet Name="FK__SP__MaNCC__32E0915F" Association="QLBANHANGModel.FK__SP__MaNCC__32E0915F">
+          <AssociationSet Name="FK__SP__MaNCC__45F365D3" Association="QLBANHANGModel.FK__SP__MaNCC__45F365D3">
             <End Role="NCungCap" EntitySet="NCungCaps" />
             <End Role="SP" EntitySet="SPs" />
           </AssociationSet>
@@ -317,8 +264,9 @@
           <Property Name="MaSP" Type="Int32" Nullable="false" />
           <Property Name="SoLuong" Type="Int32" />
           <Property Name="DonGia" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="HD" Relationship="QLBANHANGModel.FK__ChiTietHoa__MaHD__35BCFE0A" FromRole="ChiTietHoaDon" ToRole="HD" />
-          <NavigationProperty Name="SP" Relationship="QLBANHANGModel.FK__ChiTietHoa__MaSP__36B12243" FromRole="ChiTietHoaDon" ToRole="SP" />
+          <Property Name="Thanhtien" Type="Decimal" Precision="29" Scale="0" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="HD" Relationship="QLBANHANGModel.FK__ChiTietHoa__MaHD__48CFD27E" FromRole="ChiTietHoaDon" ToRole="HD" />
+          <NavigationProperty Name="SP" Relationship="QLBANHANGModel.FK__ChiTietHoa__MaSP__49C3F6B7" FromRole="ChiTietHoaDon" ToRole="SP" />
         </EntityType>
         <EntityType Name="DanhGia">
           <Key>
@@ -330,8 +278,24 @@
           <Property Name="NgayDG" Type="DateTime" Precision="3" />
           <Property Name="MaKH" Type="Int32" />
           <Property Name="MaSP" Type="Int32" />
-          <NavigationProperty Name="KH" Relationship="QLBANHANGModel.FK__DanhGia__MaKH__398D8EEE" FromRole="DanhGia" ToRole="KH" />
-          <NavigationProperty Name="SP" Relationship="QLBANHANGModel.FK__DanhGia__MaSP__3A81B327" FromRole="DanhGia" ToRole="SP" />
+          <NavigationProperty Name="KH" Relationship="QLBANHANGModel.FK__DanhGia__MaKH__4CA06362" FromRole="DanhGia" ToRole="KH" />
+          <NavigationProperty Name="SP" Relationship="QLBANHANGModel.FK__DanhGia__MaSP__4D94879B" FromRole="DanhGia" ToRole="SP" />
+        </EntityType>
+        <EntityType Name="DONDATHANG">
+          <Key>
+            <PropertyRef Name="MaHD" />
+          </Key>
+          <Property Name="MaHD" Type="Int32" Nullable="false" />
+          <Property Name="MaKH" Type="Int32" />
+          <Property Name="NgayDH" Type="DateTime" Precision="3" />
+          <Property Name="Trigia" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Dagiao" Type="Boolean" />
+          <Property Name="Ngaygiaohang" Type="DateTime" Precision="3" />
+          <Property Name="Tennguoinhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Diachinhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dienthoainhan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HTThanhtoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="HD">
           <Key>
@@ -343,9 +307,9 @@
           <Property Name="TinhTrang" Type="Boolean" />
           <Property Name="MaKH" Type="Int32" />
           <Property Name="MaTT" Type="Int32" />
-          <NavigationProperty Name="ChiTietHoaDons" Relationship="QLBANHANGModel.FK__ChiTietHoa__MaHD__35BCFE0A" FromRole="HD" ToRole="ChiTietHoaDon" />
-          <NavigationProperty Name="KH" Relationship="QLBANHANGModel.FK__HD__MaKH__2E1BDC42" FromRole="HD" ToRole="KH" />
-          <NavigationProperty Name="ThanhToan" Relationship="QLBANHANGModel.FK__HD__MaTT__2F10007B" FromRole="HD" ToRole="ThanhToan" />
+          <NavigationProperty Name="ChiTietHoaDons" Relationship="QLBANHANGModel.FK__ChiTietHoa__MaHD__48CFD27E" FromRole="HD" ToRole="ChiTietHoaDon" />
+          <NavigationProperty Name="KH" Relationship="QLBANHANGModel.FK__HD__MaKH__412EB0B6" FromRole="HD" ToRole="KH" />
+          <NavigationProperty Name="ThanhToan" Relationship="QLBANHANGModel.FK__HD__MaTT__4222D4EF" FromRole="HD" ToRole="ThanhToan" />
         </EntityType>
         <EntityType Name="KH">
           <Key>
@@ -358,8 +322,8 @@
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SDT" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="DanhGias" Relationship="QLBANHANGModel.FK__DanhGia__MaKH__398D8EEE" FromRole="KH" ToRole="DanhGia" />
-          <NavigationProperty Name="HDs" Relationship="QLBANHANGModel.FK__HD__MaKH__2E1BDC42" FromRole="KH" ToRole="HD" />
+          <NavigationProperty Name="DanhGias" Relationship="QLBANHANGModel.FK__DanhGia__MaKH__4CA06362" FromRole="KH" ToRole="DanhGia" />
+          <NavigationProperty Name="HDs" Relationship="QLBANHANGModel.FK__HD__MaKH__412EB0B6" FromRole="KH" ToRole="HD" />
         </EntityType>
         <EntityType Name="LoaiSP">
           <Key>
@@ -367,7 +331,7 @@
           </Key>
           <Property Name="MaLoaiSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenLoaiSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="SPs" Relationship="QLBANHANGModel.FK__SP__MaLoaiSP__31EC6D26" FromRole="LoaiSP" ToRole="SP" />
+          <NavigationProperty Name="SPs" Relationship="QLBANHANGModel.FK__SP__MaLoaiSP__44FF419A" FromRole="LoaiSP" ToRole="SP" />
         </EntityType>
         <EntityType Name="NCungCap">
           <Key>
@@ -377,7 +341,7 @@
           <Property Name="TenNCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="13" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="SPs" Relationship="QLBANHANGModel.FK__SP__MaNCC__32E0915F" FromRole="NCungCap" ToRole="SP" />
+          <NavigationProperty Name="SPs" Relationship="QLBANHANGModel.FK__SP__MaNCC__45F365D3" FromRole="NCungCap" ToRole="SP" />
         </EntityType>
         <EntityType Name="SP">
           <Key>
@@ -392,10 +356,10 @@
           <Property Name="MaLoaiSP" Type="Int32" />
           <Property Name="MaNCC" Type="Int32" />
           <Property Name="SoLuongTon" Type="Int32" />
-          <NavigationProperty Name="ChiTietHoaDons" Relationship="QLBANHANGModel.FK__ChiTietHoa__MaSP__36B12243" FromRole="SP" ToRole="ChiTietHoaDon" />
-          <NavigationProperty Name="DanhGias" Relationship="QLBANHANGModel.FK__DanhGia__MaSP__3A81B327" FromRole="SP" ToRole="DanhGia" />
-          <NavigationProperty Name="LoaiSP" Relationship="QLBANHANGModel.FK__SP__MaLoaiSP__31EC6D26" FromRole="SP" ToRole="LoaiSP" />
-          <NavigationProperty Name="NCungCap" Relationship="QLBANHANGModel.FK__SP__MaNCC__32E0915F" FromRole="SP" ToRole="NCungCap" />
+          <NavigationProperty Name="ChiTietHoaDons" Relationship="QLBANHANGModel.FK__ChiTietHoa__MaSP__49C3F6B7" FromRole="SP" ToRole="ChiTietHoaDon" />
+          <NavigationProperty Name="DanhGias" Relationship="QLBANHANGModel.FK__DanhGia__MaSP__4D94879B" FromRole="SP" ToRole="DanhGia" />
+          <NavigationProperty Name="LoaiSP" Relationship="QLBANHANGModel.FK__SP__MaLoaiSP__44FF419A" FromRole="SP" ToRole="LoaiSP" />
+          <NavigationProperty Name="NCungCap" Relationship="QLBANHANGModel.FK__SP__MaNCC__45F365D3" FromRole="SP" ToRole="NCungCap" />
         </EntityType>
         <EntityType Name="ThanhToan">
           <Key>
@@ -403,9 +367,9 @@
           </Key>
           <Property Name="MaTT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenPT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="HDs" Relationship="QLBANHANGModel.FK__HD__MaTT__2F10007B" FromRole="ThanhToan" ToRole="HD" />
+          <NavigationProperty Name="HDs" Relationship="QLBANHANGModel.FK__HD__MaTT__4222D4EF" FromRole="ThanhToan" ToRole="HD" />
         </EntityType>
-        <Association Name="FK__ChiTietHoa__MaHD__35BCFE0A">
+        <Association Name="FK__ChiTietHoa__MaHD__48CFD27E">
           <End Type="QLBANHANGModel.HD" Role="HD" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -419,7 +383,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ChiTietHoa__MaSP__36B12243">
+        <Association Name="FK__ChiTietHoa__MaSP__49C3F6B7">
           <End Type="QLBANHANGModel.SP" Role="SP" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -433,7 +397,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DanhGia__MaKH__398D8EEE">
+        <Association Name="FK__DanhGia__MaKH__4CA06362">
           <End Type="QLBANHANGModel.KH" Role="KH" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -447,7 +411,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DanhGia__MaSP__3A81B327">
+        <Association Name="FK__DanhGia__MaSP__4D94879B">
           <End Type="QLBANHANGModel.SP" Role="SP" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -461,7 +425,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HD__MaKH__2E1BDC42">
+        <Association Name="FK__HD__MaKH__412EB0B6">
           <End Type="QLBANHANGModel.KH" Role="KH" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -475,7 +439,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HD__MaTT__2F10007B">
+        <Association Name="FK__HD__MaTT__4222D4EF">
           <End Type="QLBANHANGModel.ThanhToan" Role="ThanhToan" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -489,7 +453,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SP__MaLoaiSP__31EC6D26">
+        <Association Name="FK__SP__MaLoaiSP__44FF419A">
           <End Type="QLBANHANGModel.LoaiSP" Role="LoaiSP" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -503,7 +467,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SP__MaNCC__32E0915F">
+        <Association Name="FK__SP__MaNCC__45F365D3">
           <End Type="QLBANHANGModel.NCungCap" Role="NCungCap" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -537,6 +501,7 @@
           <EntitySetMapping Name="ChiTietHoaDons">
             <EntityTypeMapping TypeName="QLBANHANGModel.ChiTietHoaDon">
               <MappingFragment StoreEntitySet="ChiTietHoaDon">
+                <ScalarProperty Name="Thanhtien" ColumnName="Thanhtien" />
                 <ScalarProperty Name="DonGia" ColumnName="DonGia" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
@@ -553,6 +518,23 @@
                 <ScalarProperty Name="MoTa" ColumnName="MoTa" />
                 <ScalarProperty Name="Rating" ColumnName="Rating" />
                 <ScalarProperty Name="MaDG" ColumnName="MaDG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DONDATHANGs">
+            <EntityTypeMapping TypeName="QLBANHANGModel.DONDATHANG">
+              <MappingFragment StoreEntitySet="DONDATHANG">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="HTThanhtoan" ColumnName="HTThanhtoan" />
+                <ScalarProperty Name="Dienthoainhan" ColumnName="Dienthoainhan" />
+                <ScalarProperty Name="Diachinhan" ColumnName="Diachinhan" />
+                <ScalarProperty Name="Tennguoinhan" ColumnName="Tennguoinhan" />
+                <ScalarProperty Name="Ngaygiaohang" ColumnName="Ngaygiaohang" />
+                <ScalarProperty Name="Dagiao" ColumnName="Dagiao" />
+                <ScalarProperty Name="Trigia" ColumnName="Trigia" />
+                <ScalarProperty Name="NgayDH" ColumnName="NgayDH" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="MaHD" ColumnName="MaHD" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

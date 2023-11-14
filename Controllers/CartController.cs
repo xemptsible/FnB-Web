@@ -105,10 +105,53 @@ namespace WebFnB.Controllers
             List<MatHangMua> gioHang = LayGioHang();
             if (gioHang == null || gioHang.Count == 0)
                 return RedirectToAction("Index", "Product");
-
+            var paymentMethods = database.ThanhToans.Select(p => new SelectListItem {Value = p.MaTT.ToString(),Text = p.TenPT}).ToList();
+            ViewBag.PaymentMethods = paymentMethods;
             ViewBag.TongSL = TinhTongSL();
             ViewBag.TongTien = TinhTongTien();
             return View(gioHang);
+        }
+        QLBANHANGEntities database = new QLBANHANGEntities();
+        public ActionResult DongYDatHang(FormCollection form)
+        {
+            KH khach = Session["TaiKhoan"] as KH; //Khách
+            List<MatHangMua> gioHang = LayGioHang(); //Giỏ hàng
+            string selectedPaymentMethod = form["PaymentMethod"];
+
+            DONDATHANG DonHang = new DONDATHANG(); //Tạo mới đơn đặt hàng
+            DonHang.MaKH = khach.MaKH;
+            DonHang.NgayDH = DateTime.Now;
+            DonHang.Trigia = (decimal)TinhTongTien();
+            DonHang.Dagiao = false;
+            DonHang.Tennguoinhan = khach.TenKH;
+            DonHang.Diachinhan = khach.DiaChi;
+            DonHang.Email = khach.Email;
+            DonHang.HTThanhtoan = selectedPaymentMethod;
+            DonHang.Dienthoainhan = khach.SDT;
+
+            database.DONDATHANGs.Add(DonHang);
+            database.SaveChanges();
+
+            //Lần lượt thêm từng chi tiết cho đơn hàng trên
+            foreach (var sanpham in gioHang)
+            {
+                ChiTietHoaDon chitiet = new ChiTietHoaDon();
+                chitiet.MaHD = DonHang.MaHD;
+                chitiet.MaSP = sanpham.MaSP;
+                chitiet.SoLuong = sanpham.SoLuong;
+                chitiet.DonGia = (decimal)sanpham.GiaBan;
+                database.ChiTietHoaDons.Add(chitiet);
+            }
+            database.SaveChanges();
+
+            //Xoá giỏ hàng
+            Session["GioHang"] = null;
+            return RedirectToAction("HoanThanhDonHang");
+        }
+
+        public ActionResult HoanThanhDonHang()
+        {
+            return View();
         }
     }
 }

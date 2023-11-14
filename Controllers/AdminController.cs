@@ -370,7 +370,78 @@ namespace MvcBookStore.Controllers
 
             return RedirectToAction("LoaiSP"); // Chuyển hướng người dùng sau khi xóa (không cần trang xác nhận)
         }
+        public ActionResult HoaDon(int? page)
+        {
+            var dsHoaDon = database.DONDATHANGs.ToList();
+            //Tạo biến cho biết số sách mỗi trang
+            int pageSize = 5;
+            //Tạo biến số trang
+            int pageNum = (page ?? 1);
+            return View(dsHoaDon.OrderBy(hd => hd.MaHD).ToPagedList(pageNum, pageSize));
+        }
 
+        public ActionResult ChiTietHoaDon(int id)
+        {
+            var hoaDon = database.DONDATHANGs.FirstOrDefault(hd => hd.MaHD == id);
+
+            if (hoaDon == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(hoaDon);
+        }
+
+        [HttpPost]
+        public ActionResult EditHoaDon(DONDATHANG hoaDon)
+        {
+            if (ModelState.IsValid)
+            {
+                // Lấy sản phẩm từ cơ sở dữ liệu
+                var HOADON = database.DONDATHANGs.FirstOrDefault(DONDATHANG => DONDATHANG.MaHD == hoaDon.MaHD);
+
+                if (HOADON != null)
+                {
+                    // Cập nhật thông tin sản phẩm từ form chỉnh sửa
+                    HOADON.MaHD = hoaDon.MaHD;
+                    HOADON.MaKH = hoaDon.MaKH;
+                    HOADON.Tennguoinhan = hoaDon.Tennguoinhan;
+                    HOADON.Dagiao = hoaDon.Dagiao;
+                    HOADON.Diachinhan = hoaDon.Diachinhan;
+                    HOADON.Email = hoaDon.Email;
+                    HOADON.Dienthoainhan = hoaDon.Dienthoainhan;
+                    HOADON.HTThanhtoan = hoaDon.HTThanhtoan;
+                    HOADON.Trigia = hoaDon.Trigia;
+                    HOADON.NgayDH = hoaDon.NgayDH;
+                    HOADON.Ngaygiaohang = hoaDon.Ngaygiaohang;
+
+                    // Lưu thay đổi vào cơ sở dữ liệu
+                    database.SaveChanges();
+
+                    ViewBag.ThongBao = "Chỉnh sửa nhà cung cấp thành công";
+                    return RedirectToAction("HoaDon");
+                }
+                else
+                {
+                    ViewBag.ThongBao = " ";
+                }
+            }
+
+            return View(hoaDon);
+
+        }
+        public ActionResult DeleteHoaDon(int id)
+        {
+            var dsHoaDon = database.DONDATHANGs.FirstOrDefault(DONDATHANG => DONDATHANG.MaHD == id);
+
+            if (dsHoaDon != null)
+            {
+                database.DONDATHANGs.Remove(dsHoaDon);
+                database.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
+            }
+
+            return RedirectToAction("HoaDon"); // Chuyển hướng người dùng sau khi xóa (không cần trang xác nhận)
+        }
 
     }
 }

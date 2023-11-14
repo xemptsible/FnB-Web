@@ -28,6 +28,7 @@ namespace WebFnB.Models
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         public virtual DbSet<DanhGia> DanhGias { get; set; }
+        public virtual DbSet<DONDATHANG> DONDATHANGs { get; set; }
         public virtual DbSet<HD> HDs { get; set; }
         public virtual DbSet<KH> KHs { get; set; }
         public virtual DbSet<LoaiSP> LoaiSPs { get; set; }
